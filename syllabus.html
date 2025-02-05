@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nested Dropdown Navbar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      background-color: #4B0082; /* Purple */
+      padding: 10px 20px;
+      align-items: center;
+    }
+
+    .navbar a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .navbar a:hover {
+      color: #FFD700; /* Gold */
+    }
+
+    /* Dropdown Container */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%; /* Show below the parent */
+      left: 0;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      min-width: 200px;
+      border-radius: 5px;
+    }
+
+    .dropdown-content a {
+      color: #4B0082; /* Purple */
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #F0F0F0;
+    }
+
+    /* Nested Dropdown Content */
+    .nested-dropdown {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%; /* Position next to the main dropdown */
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      min-width: 200px;
+      border-radius: 5px;
+    }
+
+    .nested-dropdown a {
+      color: #4B0082;
+      padding: 10px;
+    }
+
+    /* Show on Click */
+    .dropdown.show .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content .dropdown-item:hover .nested-dropdown {
+      display: block;
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar a {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <div class="dropdown">
+      <a onclick="toggleDropdown(event)">Study Materials</a>
+      <div class="dropdown-content">
+        <div class="dropdown-item">
+          <a href="#" onclick="loadSyllabus('NEET')">NEET</a>
+          <div class="nested-dropdown">
+            <a href="#">NEET 2024</a>
+            <a href="#">NEET 2023</a>
+            <a href="#">NEET Registration</a>
+            <a href="#">NEET Admit Card</a>
+            <a href="#">NEET Test Series</a>
+            <a href="subject.html">NEET Syllabus</a>
+            <a href="#">NEET Sample Papers</a>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <a href="#" onclick="loadSyllabus('JEE')">JEE</a>
+          <div class="nested-dropdown">
+            <a href="#">JEE 2024</a>
+            <a href="subject.html">JEE Syllabus</a>
+            <a href="#">JEE Question Papers</a>
+            <a href="#">JEE Test Series</a>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <a href="#" onclick="loadSyllabus('CLAT')">CLAT</a>
+          <div class="nested-dropdown">
+            <a href="#">CLAT 2024</a>
+            <a href="subject.html">CLAT Syllabus</a>
+            <a href="#">CLAT Preparation</a>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <a href="#" onclick="loadSyllabus('CUET')">CUET</a>
+          <div class="nested-dropdown">
+            <a href="#">CUET 2024</a>
+            <a href="subject.html">CUET Syllabus</a>
+            <a href="#">CUET Question Papers</a>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <a href="#" onclick="loadSyllabus('Foundation')">Foundation Courses</a>
+          <div class="nested-dropdown">
+            <a href="#">Class 6</a>
+            <a href="#">Class 7</a>
+            <a href="#">Class 8</a>
+            <a href="#">Class 9</a>
+            <a href="#">Class 10</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#">Login</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <div id="content" style="padding: 20px;">
+    <!-- Content will be loaded here dynamically -->
+  </div>
+
+  <script>
+    // Toggle dropdown visibility
+    function toggleDropdown(event) {
+      event.preventDefault();
+      const parent = event.target.parentNode;
+      parent.classList.toggle('show');
+    }
+
+    // Load syllabus content dynamically
+    function loadSyllabus(course) {
+      const syllabusContent = {
+        NEET: `<h2>NEET Syllabus</h2><p>Details about NEET syllabus...</p>`,
+        JEE: `<h2>JEE Syllabus</h2><p>Details about JEE syllabus...</p>`,
+        CLAT: `<h2>CLAT Syllabus</h2><p>Details about CLAT syllabus...</p>`,
+        CUET: `<h2>CUET Syllabus</h2><p>Details about CUET syllabus...</p>`,
+        Foundation: `<h2>Foundation Courses Syllabus</h2><p>Details about Foundation syllabus...</p>`
+      };
+
+      const contentDiv = document.getElementById("content");
+      contentDiv.innerHTML = syllabusContent[course] || "<h2>Select a course to view the syllabus</h2>";
+    }
+
+    // Close dropdowns if clicked outside
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropdown > a')) {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('show');
+        });
+      }
+    };
+  </script>
+
+</body>
+</html>

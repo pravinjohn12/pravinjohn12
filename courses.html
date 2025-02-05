@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Cards</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7fcff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .course-card {
+            width: 280px;
+            background: linear-gradient(145deg, #ffffff, #e6f7ff);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .online-label {
+            position: absolute;
+            top: 60px;
+            left: 4px;
+            background: #2a9d8f;
+            color: white;
+            padding: 2px 7px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card-header {
+            background: linear-gradient(90deg, #457b9d, #2a9d8f);
+            color: #ffffff;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .course-card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            color: #555555;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .course-card-body ul li {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .course-card-body ul li::before {
+            content: "✔";
+            color: #2a9d8f;
+            margin-right: 8px;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999999;
+            font-size: 0.75rem;
+            margin-left: 5px;
+        }
+
+        .discount {
+            font-size: 0.8rem;
+            color: #e63946;
+            margin-bottom: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .button {
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button.explore {
+            background: #2a9d8f;
+            color: white;
+        }
+
+        .button.explore:hover {
+            background: #217867;
+        }
+
+        .button.buy-now {
+            background: linear-gradient(90deg, #484bf0, #396ae8);
+            color: white;
+        }
+
+        .button.buy-now:hover {
+            background: linear-gradient(90deg, #d63244, #ff6840);
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="ui.html">
+                <img src="https://aazadacademy.com/wp-content/uploads/2024/08/logo3-e1724488611802.png" alt="Aazad Academy">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-center">
+                <li><a href="finalpage.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#">Study Materials</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <a href="#">NEET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">NEET 2024</a>
+                                <a href="#">NEET Syllabus</a>
+                                <a href="#">NEET Sample Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">JEE</a>
+                            <div class="nested-dropdown">
+                                <a href="#">JEE 2024</a>
+                                <a href="#">JEE Syllabus</a>
+                                <a href="#">JEE Question Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CLAT</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLAT 2024</a>
+                                <a href="#">CLAT Syllabus</a>
+                                <a href="#">CLAT Preparation</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CUET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CUET 2024</a>
+                                <a href="#">CUET Syllabus</a>
+                                <a href="#">CUET Question Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">Foundation Courses</a>
+                            <div class="nested-dropdown">
+                                <a href="#">Class 6</a>
+                                <a href="#">Class 7</a>
+                                <a href="#">Class 8</a>
+                                <a href="#">Class 9</a>
+                                <a href="#">Class 10</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="testseries.html">Test Series</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="btn-login" onclick="location.href='login.html'">Login</button>
+                <button class="btn-signup" onclick="location.href='signup.html'">Sign Up</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+  
+    <!-- NEET Card -->
+    <div class="course-card">
+        <div class="online-label">ONLINE</div>
+        <div class="course-card-header">NEET CLASS 2026</div>
+        <div class="course-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="NEET Course" class="course-image">
+            <ul>
+                <li>LIVE CLASSES with Notes</li>
+                <li>DPPs with Video Solution</li>
+                <li>Regular Test</li>
+                <li>24x7 Doubt Support</li>
+            </ul>
+            <div class="price">₹4,999 <span class="original-price">₹5,600</span></div>
+            <div class="discount">Discount of 11% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JEE Card -->
+    <div class="course-card">
+        <div class="online-label">ONLINE</div>
+        <div class="course-card-header">JEE CLASS 2026</div>
+        <div class="course-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="JEE Course" class="course-image">
+            <ul>
+                <li>Concept Mastery Sessions</li>
+                <li>Regular Mock Tests</li>
+                <li>Performance Analysis</li>
+                <li>24x7 Doubt Support</li>
+            </ul>
+            <div class="price">₹5,499 <span class="original-price">₹6,000</span></div>
+            <div class="discount">Discount of 8% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLAT Card -->
+    <div class="course-card">
+        <div class="online-label">ONLINE</div>
+        <div class="course-card-header">CLAT CLASS 2026</div>
+        <div class="course-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="CLAT Course" class="course-image">
+            <ul>
+                <li>LIVE CLASSES with Notes</li>
+                <li>Previous Year Paper Analysis</li>
+                <li>Regular Practice Questions</li>
+                <li>Expert Guidance</li>
+            </ul>
+            <div class="price">₹4,299 <span class="original-price">₹4,800</span></div>
+            <div class="discount">Discount of 10% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUET Card -->
+    <div class="course-card">
+        <div class="online-label">ONLINE</div>
+        <div class="course-card-header">CUET CLASS 2026</div>
+        <div class="course-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="CUET Course" class="course-image">
+            <ul>
+                <li>LIVE CLASSES with Notes</li>
+                <li>Mock Exams</li>
+                <li>Topic-Wise Practice</li>
+                <li>Expert Mentor Support</li>
+            </ul>
+            <div class="price">₹3,999 <span class="original-price">₹4,500</span></div>
+            <div class="discount">Discount of 11% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Foundation Crash Course Card -->
+    <div class="course-card">
+        <div class="online-label">ONLINE</div>
+        <div class="course-card-header">FOUNDATION CRASH COURSE</div>
+        <div class="course-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="Crash Course" class="course-image">
+            <ul>
+                <li>Foundation Building Classes</li>
+                <li>Quick Revision Notes</li>
+                <li>Interactive Tests</li>
+                <li>24x7 Support</li>
+            </ul>
+            <div class="price">₹2,999 <span class="original-price">₹3,500</span></div>
+            <div class="discount">Discount of 14% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

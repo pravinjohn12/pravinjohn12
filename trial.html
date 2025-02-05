@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz with Sidebar</title>
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .main-container {
+      display: flex;
+      width: 90%;
+      max-width: 1200px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 20%;
+      background-color: #f9f9f9;
+      color: #6c63ff;
+      padding: 20px;
+    }
+
+    .sidebar h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .question-button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .question-button {
+      width: 50px;
+      height: 50px;
+      background-color: #eaeaea;
+      border: none;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: bold;
+      color: #6c63ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .question-button.active {
+      background-color: #6c63ff;
+      color: #fff;
+    }
+
+    .question-button:hover {
+      background-color: #d1ceff;
+    }
+
+    /* Quiz Section */
+    .quiz-container {
+      width: 80%;
+      padding: 20px 40px;
+    }
+
+    .timer-section {
+      text-align: right;
+      font-size: 18px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .question-header {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .question-header h3 {
+      font-size: 22px;
+      font-weight: bold;
+      color: #6c63ff;
+    }
+
+    .question-box {
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option {
+      padding: 10px 20px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+
+    .option:hover {
+      background-color: #f0f0f0;
+    }
+
+    .option.selected {
+      background-color: #6c63ff;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .navigation-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .navigation-buttons button {
+      padding: 10px 30px;
+      font-size: 16px;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      background-color: #6c63ff;
+    }
+
+    .navigation-buttons button:hover {
+      background-color: #5a54d7;
+    }
+
+    .submit-section {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .submit-section button {
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background-color: #6c63ff;
+    }
+
+    .submit-section button:hover {
+      background-color: #5a54d7;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h3>Questions</h3>
+      <div id="question-list" class="question-button-container"></div>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz-container">
+      <div class="timer-section">
+        <p id="timer">60:00</p>
+      </div>
+      <div class="question-header">
+        <h3>Question <span id="current-question">1</span>/10</h3>
+      </div>
+      <div class="question-box">
+        <p id="question-text"></p>
+      </div>
+      <div class="options" id="options-container"></div>
+      <div class="navigation-buttons">
+        <button id="prev-btn" onclick="prevQuestion()">Previous</button>
+        <button id="next-btn" onclick="nextQuestion()">Next</button>
+      </div>
+      <div class="submit-section">
+        <button id="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Who was the first Governor-General of India?",
+        options: ["Lord Mountbatten", "Lord Canning", "Warren Hastings", "Lord Ripon"],
+        correctAnswer: "Warren Hastings",
+      },
+      {
+        question: "The Fundamental Rights are enshrined in which part of the Indian Constitution?",
+        options: ["Part I", "Part III", "Part IV", "Part V"],
+        correctAnswer: "Part III",
+        explanation: "The Fundamental Rights are enshrined in Part III of the Indian Constitution, ensuring essential rights for individuals.",
+    },
+    {
+        question: "Which river is known as the 'Dakshina Ganga'?",
+        options: ["Krishna", "Godavari", "Kaveri", "Mahanadi"],
+        correctAnswer: "Godavari",
+        explanation: "The Godavari River is often referred to as the 'Dakshina Ganga' due to its importance and sacredness in southern India.",
+    },
+    {
+        question: "In which year did the Jallianwala Bagh Massacre take place?",
+        options: ["1915", "1919", "1921", "1923"],
+        correctAnswer: "1919",
+        explanation: "The Jallianwala Bagh Massacre occurred in 1919 when British troops opened fire on a peaceful gathering in Amritsar.",
+    },
+    {
+        question: "The Planning Commission was replaced by which organization?",
+        options: ["NITI Aayog", "Finance Commission", "GST Council", "Economic Advisory Council"],
+        correctAnswer: "NITI Aayog",
+        explanation: "The Planning Commission was replaced by NITI Aayog in 2015 to foster a more flexible and decentralized approach to planning.",
+    },
+    {
+        question: "Who is the chairman of the Rajya Sabha?",
+        options: ["Prime Minister", "President of India", "Vice President of India", "Speaker of Lok Sabha"],
+        correctAnswer: "Vice President of India",
+        explanation: "The Vice President of India serves as the ex-officio Chairman of the Rajya Sabha, the upper house of Parliament.",
+    },
+    {
+        question: "Which state is the largest producer of coffee in India?",
+        options: ["Kerala", "Tamil Nadu", "Karnataka", "Andhra Pradesh"],
+        correctAnswer: "Karnataka",
+        explanation: "Karnataka is the largest producer of coffee in India, particularly in the regions of Coorg and Chikmagalur.",
+    },
+    {
+        question: "Which Article of the Indian Constitution provides for the right to education?",
+        options: ["Article 14", "Article 21A", "Article 29", "Article 32"],
+        correctAnswer: "Article 21A",
+        explanation: "Article 21A of the Indian Constitution provides for the right to education, making it a fundamental right.",
+    },
+    {
+        question: "Who was known as the 'Iron Man of India'?",
+        options: ["Jawaharlal Nehru", "Sardar Vallabhbhai Patel", "Subhas Chandra Bose", "Mahatma Gandhi"],
+        correctAnswer: "Sardar Vallabhbhai Patel",
+        explanation: "Sardar Vallabhbhai Patel was known as the 'Iron Man of India' for his role in uniting the princely states after independence.",
+    },
+    {
+        question: "The Quit India Movement was launched in which year?",
+        options: ["1935", "1940", "1942", "1947"],
+        correctAnswer: "1942",
+        explanation: "The Quit India Movement was launched in 1942 as a call for immediate independence from British rule.",
+    },
+    {
+        question: "Which country is the largest producer of rice?",
+        options: ["India", "China", "Vietnam", "Thailand"],
+        correctAnswer: "India",
+        explanation: "India is the largest producer of rice in the world, followed closely by China.",
+    },// Add more questions as needed
+    ];
+
+    let currentQuestionIndex = 0;
+    let selectedAnswers = {};
+    let timerSeconds = 3600;
+
+    function initQuiz() {
+      populateSidebar();
+      startTimer();
+      updateQuestion();
+    }
+
+    function populateSidebar() {
+      const questionList = document.getElementById("question-list");
+      questions.forEach((_, index) => {
+        const questionButton = document.createElement("button");
+        questionButton.className = "question-button";
+        questionButton.textContent = `Q${index + 1}`;
+        questionButton.onclick = () => goToQuestion(index);
+        questionList.appendChild(questionButton);
+      });
+    }
+
+    function startTimer() {
+      const timerElement = document.getElementById("timer");
+      const interval = setInterval(() => {
+        if (timerSeconds <= 0) {
+          clearInterval(interval);
+          alert("Time's up! Submitting the quiz.");
+          submitQuiz();
+          return;
+        }
+        timerSeconds--;
+        const minutes = String(Math.floor(timerSeconds / 60)).padStart(2, "0");
+        const seconds = String(timerSeconds % 60).padStart(2, "0");
+        timerElement.textContent = `${minutes}:${seconds}`;
+      }, 1000);
+    }
+
+    function updateQuestion() {
+      document.getElementById("question-text").textContent = questions[currentQuestionIndex].question;
+      const optionsContainer = document.getElementById("options-container");
+      optionsContainer.innerHTML = "";
+
+      questions[currentQuestionIndex].options.forEach((option, index) => {
+        const optionElement = document.createElement("div");
+        optionElement.className = "option";
+        optionElement.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+        optionElement.onclick = () => selectOption(optionElement, index);
+        if (selectedAnswers[currentQuestionIndex] === index) {
+          optionElement.classList.add("selected");
+        }
+        optionsContainer.appendChild(optionElement);
+      });
+
+      document.getElementById("current-question").textContent = currentQuestionIndex + 1;
+    }
+
+    function selectOption(optionElement, index) {
+      selectedAnswers[currentQuestionIndex] = index;
+      document.querySelectorAll(".option").forEach(option => option.classList.remove("selected"));
+      optionElement.classList.add("selected");
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        updateQuestion();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        updateQuestion();
+      }
+    }
+
+    function goToQuestion(index) {
+      currentQuestionIndex = index;
+      updateQuestion();
+    }
+
+    function submitQuiz() {
+      alert("Quiz submitted successfully!");
+    }
+
+    initQuiz();
+  </script>
+</body>
+</html>

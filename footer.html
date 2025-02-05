@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer with Map and Contact Info</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    footer {
+      background-color: #73c0ff;
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0 50px;
+    }
+
+    .footer-section {
+      width: 22%;
+      margin-bottom: 20px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 15px;
+    }
+
+    .footer-section p {
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-section ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 20px;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+
+    .contact-map-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 50px;
+    }
+
+    .contact-info {
+      width: 48%;
+    }
+
+    .map-container {
+      width: 50%;
+      height: 300px;
+    }
+
+    .footer-bottom {
+      background-color: #73c0ff;
+      text-align: center;
+      padding: 40px 0;
+      margin-top: 50px;
+    }
+
+    .footer-bottom p {
+      margin: 50px;
+    }
+
+    .footer-bottom a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile View Adjustments */
+    @media (max-width: 768px) {
+      .footer-container {
+        padding: 0 20px; /* Adjust padding for mobile */
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-section {
+        width: 100%; /* Make sections take full width */
+        text-align: center; /* Center the content */
+        margin-bottom: 20px;
+      }
+
+      .contact-map-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+      }
+
+      .contact-info {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .map-container {
+        width: 100%;
+        height: 200px; /* Reduce height for mobile */
+      }
+
+      .footer-bottom {
+        padding: 20px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <footer>
+    <div class="footer-container">
+      <!-- About Section -->
+      <div class="footer-section about">
+        <h3>About Aazad Academy</h3>
+        <p>
+          Aazad Academy provides top-notch coaching for NEET and JEE aspirants. With a focus on quality education and rigorous practice, Aazad Academy empowers students to achieve their academic goals.
+        </p>
+        <div class="social-icons">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Study Material Section -->
+      <div class="footer-section study-material">
+        <h3>Study Material</h3>
+        <ul>
+          <li><a href="#">Physics Notes</a></li>
+          <li><a href="#">Chemistry Notes</a></li>
+          <li><a href="#">Biology Notes</a></li>
+          <li><a href="#">Mathematics Notes</a></li>
+        </ul>
+      </div>
+
+      <!-- Courses Section -->
+      <div class="footer-section courses">
+        <h3>Courses</h3>
+        <ul>
+          <li><a href="#">Repeater Program</a></li>
+          <li><a href="#">Crash Course</a></li>
+          <li><a href="#">Foundation Program</a></li>
+        </ul>
+      </div>
+
+      <!-- Test Series Section -->
+      <div class="footer-section test-series">
+        <h3>Test Series</h3>
+        <ul>
+          <li><a href="#">Chapter-wise Tests</a></li>
+          <li><a href="#">Unit Tests</a></li>
+          <li><a href="#">Full-Length Tests</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Contact Info and Map -->
+    <div class="contact-map-container">
+      <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p><strong>Address:</strong> Aazad Academy, Tenkasi, Tamil Nadu, 627811</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Email:</strong> <a href="mailto:info@aazadacademy.com" style="color: #fff;">info@aazadacademy.com</a></p>
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.233515112204!2d77.30086171533277!3d8.959789593561847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04950cd740267d%3A0x11a0c2aa7307460e!2sTenkasi%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1699456005557!5m2!1sen!2sin"
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>Copyright 2025 © Aazad Academy, All Rights Reserved.</p>
+      <p><a href="#">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</body>
+</html>

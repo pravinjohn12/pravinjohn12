@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Study Materials</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, select, button, textarea {
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            transition: 0.3s;
+        }
+        input:focus, select:focus, button:focus, textarea:focus {
+            border-color: #456cd6;
+            outline: none;
+        }
+        input[type="file"] {
+            padding: 8px;
+            border: none;
+        }
+        button {
+            background-color: #5865ea;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5866e2;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+            color: #333;
+        }
+        td img {
+            max-width: 60px;
+            border-radius: 5px;
+        }
+        .delete-btn {
+            background-color: red;
+            color: white;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+        }
+        .actions button {
+            margin: 0 5px;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard - Study Materials</h1>
+        
+        <form id="uploadForm">
+            <div class="input-group">
+                <input type="text" id="title" placeholder="Enter Study Material Title" required>
+                <select id="category">
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Mathematics">Mathematics</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <input type="file" id="file" required>
+                <input type="file" id="materialImage" required>
+            </div>
+            <button type="submit">Upload Study Material</button>
+        </form>
+        
+        
+        <h2>Uploaded Study Materials</h2>
+        <table id="materialsTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>File</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Study materials will be listed here -->
+            </tbody>
+        </table>
+
+        <h2>Manage NEET Syllabus</h2>
+        <form id="syllabusForm">
+            <input type="text" id="syllabusTitle" placeholder="Enter Syllabus Title" required>
+            <select id="syllabusCategory">
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Biology">Biology</option>
+            </select>
+            <input type="text" id="syllabusUnit" placeholder="Enter Unit Name" required>
+            <input type="text" id="syllabusHeading" placeholder="Enter Heading" required>
+            <textarea id="syllabusContent" placeholder="Enter Topics and Explanation" required></textarea>
+            <input type="file" id="syllabusImage" required>
+            <button type="submit">Add Syllabus</button>
+        </form>
+        
+        <h2>NEET Syllabus List</h2>
+        <table id="syllabusTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Unit</th>
+                    <th>Heading</th>
+                    <th>Topics & Explanation</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- NEET syllabus will be listed here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const category = document.getElementById('category').value;
+            const fileInput = document.getElementById('file');
+            const imageInput = document.getElementById('materialImage');
+            
+            if (fileInput.files.length === 0 || imageInput.files.length === 0) {
+                alert('Please select both a file and an image');
+                return;
+            }
+            
+            const fileName = fileInput.files[0].name;
+            const imageName = imageInput.files[0].name;
+            
+            const table = document.getElementById('materialsTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            newRow.innerHTML = `
+                <td>${title}</td>
+                <td>${category}</td>
+                <td>${fileName}</td>
+                <td><img src="${imageName}" alt="Material Image"></td>
+                <td class="actions">
+                    <button class="delete-btn" onclick="deleteRow(this)">Delete</button>
+                </td>
+            `;
+            document.getElementById('uploadForm').reset();
+        });
+
+        document.getElementById('syllabusForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('syllabusTitle').value;
+            const category = document.getElementById('syllabusCategory').value;
+            const unit = document.getElementById('syllabusUnit').value;
+            const heading = document.getElementById('syllabusHeading').value;
+            const content = document.getElementById('syllabusContent').value;
+            const imageInput = document.getElementById('syllabusImage');
+            
+            if (imageInput.files.length === 0) {
+                alert('Please select an image');
+                return;
+            }
+            const imageName = imageInput.files[0].name;
+            
+            const table = document.getElementById('syllabusTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            newRow.innerHTML = `
+                <td>${title}</td>
+                <td>${category}</td>
+                <td>${unit}</td>
+                <td>${heading}</td>
+                <td>${content}</td>
+                <td><img src="${imageName}" alt="Syllabus Image"></td>
+                <td class="actions">
+                    <button class="delete-btn" onclick="deleteRow(this)">Delete</button>
+                </td>
+            `;
+            document.getElementById('syllabusForm').reset();
+        });
+
+        function deleteRow(button) {
+            const row = button.closest('tr');
+            row.remove();
+        }
+    </script>
+</body>
+</html>

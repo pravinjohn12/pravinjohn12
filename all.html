@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aazad Academy - NEET & JEE Promo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+              body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #ffffff;
+            opacity: 0.9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-center {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-right a, .nav-center a {
+            text-decoration: none;
+            color: hsl(0, 3%, 6%);
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-right a:hover, .nav-center a:hover {
+            color: #5895f1;
+        }
+
+        /* Dropdown Styling */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ffffff;
+            color: #5895f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Nested Dropdown Styling */
+        .nested-dropdown {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover .nested-dropdown {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        .show {
+            display: flex !important;
+            flex-direction: column;
+            gap: 15px;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-center {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-right a {
+                display: inline-block;
+                padding: 10px 20px;
+                border-radius: 5px;
+                background-color: #007BFF;
+                color: #ffffff;
+                font-size: 0.9rem;
+                font-weight: bold;
+                text-decoration: none;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .nav-right a:hover {
+                background-color: #0056b3;
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+                transform: translateY(-2px);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .btn-login, .btn-signup {
+    display: inline-block;
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #007BFF; /* Blue background for buttons */
+    color: white; /* White text */
+    font-size: 1rem; /* Font size */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth hover transition */
+    text-decoration: none; /* Remove underline */
+    text-align: center; /* Center the text inside the button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.btn-login:hover, .btn-signup:hover {
+    background-color: #0056b3; /* Darker blue for hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+            
+
+
+        
+   
+      
+       
+      
+        .rago-org {
+            position: absolute;
+            width: 500px;
+            height: 520px;
+            top: 45%; 
+            left: 75%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+          
+        }
+        .student-image {
+            width: 100px;
+            border-radius: 12px;
+            margin: 10px;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+        .container {
+            padding-left: 100px;
+            margin-left: 100px;
+
+
+        }
+        .content {
+            max-width: 500px;
+            padding-left:20px ;
+            
+        }
+        h1 {
+            font-size: 2em;
+            color: #333;
+        }
+        .highlight {
+            color: #4F46E5;
+           
+            border-radius: 5px;
+        }
+        p {
+            color: #666;
+            margin-top: 10px;
+        }
+        .cta-button {
+            background: #4F46E5;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .cta-button:hover {
+            background: #3b37d1;
+        }
+        
+
+
+
+          /* Features Section */
+          .features {
+            padding: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .features h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .feature-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 150px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item h2 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: #555;
+            margin: 0;
+        }
+        
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: rgb(4, 0, 0);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: rgb(11, 0, 0);
+            margin-bottom: 20px;
+        }
+
+        .hero .cta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hero .cta a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .hero img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 400px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .features h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .feature-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 150px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item h2 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: #555;
+            margin: 0;
+        }
+
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Soft light background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white; /* Soft blue gradient */
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0;
+            animation: slideInDown 1s ease-out;
+            color: #0c4a75; /* Dark blue color for the title */
+        }
+
+        header p {
+            font-size: 18px;
+            margin: 10px 0 0;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            padding: 50px;
+            background: white;
+            border-radius: 15px;
+            margin-top: -30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content h2 {
+            font-size: 36px;
+            margin: 0 0 20px;
+            color: #0c4a75; /* Soft dark blue */
+        }
+
+        .hero-content h2 span {
+            color: #61dafb; /* Light blue accent */
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .hero-stats div {
+            text-align: center;
+        }
+
+        .hero-stats div h3 {
+            font-size: 28px;
+            color: #61dafb;
+        }
+
+        .hero-stats div p {
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .hero-button a {
+            display: inline-block;
+            padding: 12px 25px;
+            color: white;
+            background-color: #21a1f1;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-button a:hover {
+            background-color: #61dafb;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin: 60px 0 20px;
+            color: #0c4a75;
+        }
+
+        .mission-vision-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-vision {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1faff; /* Soft light blue background */
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mission-vision:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .mission-vision i {
+            font-size: 50px;
+            color: #21a1f1;
+            margin-bottom: 15px;
+        }
+
+        .mission-vision h3 {
+            font-size: 24px;
+            color: #0c4a75;
+            margin-bottom: 10px;
+        }
+
+        .mission-vision p {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="ui.html">
+                <img src="https://aazadacademy.com/wp-content/uploads/2024/08/logo3-e1724488611802.png" alt="Aazad Academy">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-center">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#">Study Materials</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <a href="#">NEET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">NEET 2024</a>
+                                <a href="subjects.html">NEET Syllabus</a>
+                                <a href="#">NEET Sample Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">JEE</a>
+                            <div class="nested-dropdown">
+                                <a href="#">JEE 2024</a>
+                                <a href="#">JEE Syllabus</a>
+                                <a href="#">JEE Question Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CLAT</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLAT 2024</a>
+                                <a href="syllabus.html">CLAT Syllabus</a>
+                                <a href="#">CLAT Preparation</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CUET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CUET 2024</a>
+                                <a href="#">CUET Syllabus</a>
+                                <a href="#">CUET Question Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">Foundation Courses</a>
+                            <div class="nested-dropdown">
+                                <a href="#">Class 6</a>
+                                <a href="#">Class 7</a>
+                                <a href="#">Class 8</a>
+                                <a href="#">Class 9</a>
+                                <a href="#">Class 10</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="testseries.html">Test Series</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="btn-login" onclick="location.href='login.html'">Login</button>
+                <button class="btn-signup" onclick="location.href='signup.html'">Sign Up</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+    
+    <script>
+        function toggleMenu() {
+            const navCenter = document.querySelector('.nav-center');
+            navCenter.classList.toggle('show');
+        }
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+   
+    
+
+       <div class="container">
+        <div class="content">
+            <h1>Your Gateway to Success in <span class="highlight">NEET & JEE</span> with Aazad Academy</h1>
+            <p>Experience unparalleled excellence in NEET & JEE preparation at Aazad Academy, where expertise seamlessly merges with innovation ensuring your success in the competitive medical and engineering entrance exams.</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+        <div class="violet-bg"></div>
+        <div>
+        <img src="web des.png" alt="Student" class=" rago-org">
+        </div>
+
+        <br>
+        <br>
+        <br>
+       
+        <section class="features">
+            <h1>Key Features of Online IIT JEE + CBSE + NEET Classes</h1>
+            <div class="feature-container">
+                <div class="feature-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3V4t3cmcigf393jDTDvaGs2yxkj5iqziafw&s" alt="Live Classes">
+                    <h2>LIVE</h2>
+                    <p>Online Classes</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://www.ahaguru.com/new-website-assets/img/video-lectures.png" alt="Concept Lectures">
+                    <h2>CONCEPT</h2>
+                    <p>Video Lectures</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://www.ahaguru.com/new-website-assets/img/solved-examples.png" alt="Solved Examples">
+                    <h2>SOLVED</h2>
+                    <p>Video Examples</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://www.ahaguru.com/new-website-assets/img/practise-test.png" alt="Smart Practice Tests">
+                    <h2>SMART</h2>
+                    <p>Practice Tests</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://www.ahaguru.com/new-website-assets/img/index-thumb/banners/index-banner-desk.png" alt="Instant Doubt Clearing">
+                    <h2>INSTANT</h2>
+                    <p>Doubt Clearing</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://www.ahaguru.com/new-website-assets/img/mentor-support.png" alt="Personalised Mentor Support">
+                    <h2>PERSONALISED</h2>
+                    <p>Mentor Support</p>
+                </div>
+            </div>
+        </section>
+    
+        </div>
+    </div>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>About Us</h1>
+            <p>Your Partner in Academic Excellence</p>
+        </header>
+    
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>At Aazad Academy, <span>we empower success</span></h2>
+                <p>Join a revolution in education where excellence meets innovation. With top-notch faculty, interactive courses, and personalized support, we are committed to helping you achieve your dreams.</p>
+                <div class="hero-stats">
+                    <div>
+                        <h3>10+</h3>
+                        <p>Years of Excellence</p>
+                    </div>
+                    <div>
+                        <h3>15K+</h3>
+                        <p>Students Mentored</p>
+                    </div>
+                    <div>
+                        <h3>500+</h3>
+                        <p>Top Faculty</p>
+                    </div>
+                </div>
+                <div class="hero-button">
+                    <a href="#">Join Now</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://www.solidtheme.org/themes/tuition001/images/education-about-1.jpg" alt="Aazad Academy">
+            </div>
+        </section>
+    
+        <!-- Mission & Vision Section -->
+        <section class="mission-vision-section">
+            <div class="mission-vision">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+                <p>To offer high-quality education and guidance for students preparing for competitive exams, ensuring they are equipped with the knowledge and skills to succeed.</p>
+            </div>
+            <div class="mission-vision">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>To provide accessible, innovative, and result-oriented learning resources that enable students to excel in their exams and careers.</p>
+            </div>
+            <div class="mission-vision">
+                <i class="fas fa-flag"></i>
+                <h3>Our Goal</h3>
+                <p>To be the leading platform for competitive exam preparation, creating an ecosystem where every student thrives.</p>
+            </div>
+        </section>
+    
+        <!-- Online Courses, Test Series, Study Material, Faculty Mentors, Interactive Learning Sections -->
+       
+    
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-container">
+              <!-- About Section -->
+              <div class="footer-section about">
+                <h3>About Aazad Academy</h3>
+                <p>
+                  Aazad Academy provides top-notch coaching for NEET and JEE aspirants. With a focus on quality education and rigorous practice, Aazad Academy empowers students to achieve their academic goals.
+                </p>
+                <div class="social-icons">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+              </div>
+        
+              <!-- Study Material Section -->
+              <div class="footer-section study-material">
+                <h3>Study Material</h3>
+                <ul>
+                  <li><a href="#">Physics Notes</a></li>
+                  <li><a href="#">Chemistry Notes</a></li>
+                  <li><a href="#">Biology Notes</a></li>
+                  <li><a href="#">Mathematics Notes</a></li>
+                </ul>
+              </div>
+        
+              <!-- Courses Section -->
+              <div class="footer-section courses">
+                <h3>Courses</h3>
+                <ul>
+                  <li><a href="#">Repeater Program</a></li>
+                  <li><a href="#">Crash Course</a></li>
+                  <li><a href="#">Foundation Program</a></li>
+                </ul>
+              </div>
+        
+              <!-- Test Series Section -->
+              <div class="footer-section test-series">
+                <h3>Test Series</h3>
+                <ul>
+                  <li><a href="#">Chapter-wise Tests</a></li>
+                  <li><a href="#">Unit Tests</a></li>
+                  <li><a href="#">Full-Length Tests</a></li>
+                </ul>
+              </div>
+            </div>
+        
+            <!-- Contact Info and Map -->
+            <div class="contact-map-container">
+              <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><strong>Address:</strong> Aazad Academy, Tenkasi, Tamil Nadu, 627811</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>Email:</strong> <a href="mailto:info@aazadacademy.com" style="color: #fff;">info@aazadacademy.com</a></p>
+              </div>
+              <div class="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.233515112204!2d77.30086171533277!3d8.959789593561847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04950cd740267d%3A0x11a0c2aa7307460e!2sTenkasi%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1699456005557!5m2!1sen!2sin"
+                  width="100%" 
+                  height="100%" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </div>
+        
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+              <p>Copyright 2025 © Aazad Academy, All Rights Reserved.</p>
+              <p><a href="#">Privacy Policy</a></p>
+            </div>
+          </footer>
+        
+          <!-- Font Awesome for Icons -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    </div>
+    
+    </body>
+    </html>
+    
+</body>
+</html>

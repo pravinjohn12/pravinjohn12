@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Study Materials Dropdown</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            text-align: center;
+            padding: 60px 0;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #ffffff;
+            opacity: 0.9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-center {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-right a, .nav-center a {
+            text-decoration: none;
+            color: hsl(0, 3%, 6%);
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-right a:hover, .nav-center a:hover {
+            color: #5895f1;
+        }
+
+        /* Dropdown Styling */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ffffff;
+            color: #5895f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Nested Dropdown Styling */
+        .nested-dropdown {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover .nested-dropdown {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        .show {
+            display: flex !important;
+            flex-direction: column;
+            gap: 15px;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-center {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-right a {
+                display: inline-block;
+                padding: 10px 20px;
+                border-radius: 5px;
+                background-color: #007BFF;
+                color: #ffffff;
+                font-size: 0.9rem;
+                font-weight: bold;
+                text-decoration: none;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .nav-right a:hover {
+                background-color: #0056b3;
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+                transform: translateY(-2px);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .btn-login, .btn-signup {
+    display: inline-block;
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #007BFF; /* Blue background for buttons */
+    color: white; /* White text */
+    font-size: 1rem; /* Font size */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth hover transition */
+    text-decoration: none; /* Remove underline */
+    text-align: center; /* Center the text inside the button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.btn-login:hover, .btn-signup:hover {
+    background-color: #0056b3; /* Darker blue for hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <a href="ui.html">
+            <img src="https://aazadacademy.com/wp-content/uploads/2024/08/logo3-e1724488611802.png" alt="Aazad Academy">
+        </a>
+    </div>
+    <nav class="nav">
+        <ul class="nav-center">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li class="dropdown">
+                <a href="#">Study Materials</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-item">
+                        <a href="#">NEET</a>
+                        <div class="nested-dropdown">
+                            <a href="#">NEET 2024</a>
+                            <a href="subjects.html">NEET Syllabus</a>
+                            <a href="#">NEET Sample Papers</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#">JEE</a>
+                        <div class="nested-dropdown">
+                            <a href="#">JEE 2024</a>
+                            <a href="#">JEE Syllabus</a>
+                            <a href="#">JEE Question Papers</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#">CLAT</a>
+                        <div class="nested-dropdown">
+                            <a href="#">CLAT 2024</a>
+                            <a href="syllabus.html">CLAT Syllabus</a>
+                            <a href="#">CLAT Preparation</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#">CUET</a>
+                        <div class="nested-dropdown">
+                            <a href="#">CUET 2024</a>
+                            <a href="#">CUET Syllabus</a>
+                            <a href="#">CUET Question Papers</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#">Foundation Courses</a>
+                        <div class="nested-dropdown">
+                            <a href="#">Class 6</a>
+                            <a href="#">Class 7</a>
+                            <a href="#">Class 8</a>
+                            <a href="#">Class 9</a>
+                            <a href="#">Class 10</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="testseries.html">Test Series</a></li>
+            <li><a href="contactus.html">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="btn-login" onclick="location.href='login.html'">Login</button>
+            <button class="btn-signup" onclick="location.href='signup.html'">Sign Up</button>
+        </div>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</header>
+
+<script>
+    function toggleMenu() {
+        const navCenter = document.querySelector('.nav-center');
+        navCenter.classList.toggle('show');
+    }
+</script>
+</body>
+</html>

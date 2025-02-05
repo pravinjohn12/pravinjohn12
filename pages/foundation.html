@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Syllabus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    /* Header */
+    .header {
+      background-color: #1a7ee1; /* Purple */
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    /* Main Content */
+    .content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .content h2 {
+      color: #000d82;
+      border-bottom: 2px solid #4B0082;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+
+    .content h3 {
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .content ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .content ul li {
+      margin-bottom: 10px;
+    }
+
+    .content a {
+      color: #1a7ee1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .content a:hover {
+      text-decoration: underline;
+    }
+
+    /* Dropdown Navigation */
+    .navbar {
+      background-color: #1a7ee1;
+      overflow: hidden;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .navbar .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .navbar .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .navbar .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .navbar .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .navbar .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Back Button */
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #21a1f1;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .back-button:hover {
+      background-color: #1a7ee1; /* Darker Purple */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  
+  <!-- Header -->
+  <div class="header">
+    <h1 id="course-title">Course Syllabus</h1>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2 id="syllabus-title">Syllabus Overview</h2>
+    <p id="syllabus-intro">The syllabus is divided into multiple subjects. Below is the detailed syllabus for each:</p>
+
+    <!-- Subjects Placeholder -->
+    <div id="syllabus-content">
+      <h3>Subject 1</h3>
+      <ul>
+        <li>Topic 1</li>
+        <li>Topic 2</li>
+        <li>Topic 3</li>
+      </ul>
+    </div>
+
+
+
+
+<script>
+    // Dynamic Data for Courses
+    const courses = {
+      NEET: {
+        title: "Foundation Courses Syllabus",
+        intro: "The Foundation Courses syllabus includes topics for Classes 6 to 10. Below is the syllabus for each class:",
+        subjects: {
+        "Class 6": ["Mathematics", "Science", "Social Studies"],
+        "Class 7": ["Advanced Mathematics", "Biology Basics", "History"],
+        "Class 8": ["Physics Introduction", "Chemical Equations", "Civics"],
+        "Class 9": ["Force and Motion", "Periodic Table", "Democracy"],
+        "Class 10": ["Electricity", "Organic Chemistry", "World Wars"],
+        }
+      },
+    };
+    function renderSyllabus(course) {
+      const data = courses[course];
+      document.getElementById("course-title").textContent = data.title;
+      document.getElementById("syllabus-title").textContent = data.title;
+      document.getElementById("syllabus-intro").textContent = data.intro;
+
+      const syllabusContent = document.getElementById("syllabus-content");
+      syllabusContent.innerHTML = "";
+
+      for (const [subject, topics] of Object.entries(data.subjects)) {
+        const subjectHeader = document.createElement("h3");
+        subjectHeader.textContent = subject;
+
+        const topicList = document.createElement("ul");
+        topics.forEach(topic => {
+          const listItem = document.createElement("li");
+          listItem.textContent = topic;
+          topicList.appendChild(listItem);
+        });
+
+        syllabusContent.appendChild(subjectHeader);
+        syllabusContent.appendChild(topicList);
+      }
+    }
+
+    // Go back to Study Materials page
+    function goBack() {
+      document.getElementById("course-title").textContent = "Course Syllabus";
+      document.getElementById("syllabus-title").textContent = "Syllabus Overview";
+      document.getElementById("syllabus-intro").textContent = "The syllabus is divided into multiple subjects. Below is the detailed syllabus for each:";
+
+      const syllabusContent = document.getElementById("syllabus-content");
+      syllabusContent.innerHTML = "<h3>Subject 1</h3><ul><li>Topic 1</li><li>Topic 2</li><li>Topic 3</li></ul>";
+    }
+
+    // Example: Load NEET Syllabus Initially
+    renderSyllabus("NEET");
+  </script>
+
+</body>
+</html>

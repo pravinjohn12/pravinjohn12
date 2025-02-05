@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Series Cards</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7fcff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .course-card {
+            width: 280px;
+            background: linear-gradient(145deg, #ffffff, #e6f7ff);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .online-label {
+            position: absolute;
+            top: 60px;
+            left: 4px;
+            background: #2a9d8f;
+            color: white;
+            padding: 2px 7px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card-header {
+            background: linear-gradient(90deg, #457b9d, #2a9d8f);
+            color: #ffffff;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .course-card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            color: #555555;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .course-card-body ul li {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .course-card-body ul li::before {
+            content: "✔";
+            color: #2a9d8f;
+            margin-right: 8px;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999999;
+            font-size: 0.75rem;
+            margin-left: 5px;
+        }
+
+        .discount {
+            font-size: 0.8rem;
+            color: #e63946;
+            margin-bottom: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .button {
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button.explore {
+            background: #2a9d8f;
+            color: white;
+        }
+
+        .button.explore:hover {
+            background: #217867;
+        }
+
+        .button.buy-now {
+            background: linear-gradient(90deg, #484bf0, #396ae8);
+            color: white;
+        }
+
+        .button.buy-now:hover {
+            background: linear-gradient(90deg, #d63244, #ff6840);
+        }
+
+
+       
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="ui.html">
+                <img src="https://aazadacademy.com/wp-content/uploads/2024/08/logo3-e1724488611802.png" alt="Aazad Academy">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-center">
+                <li><a href="changes.html">Home</a></li>
+                <li><a href="allcard.html">Courses</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#">Study Materials</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <a href="#">NEET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">NEET 2024</a>
+                                <a href="#">NEET Syllabus</a>
+                                <a href="#">NEET Sample Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">JEE</a>
+                            <div class="nested-dropdown">
+                                <a href="#">JEE 2024</a>
+                                <a href="#">JEE Syllabus</a>
+                                <a href="#">JEE Question Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CLAT</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLAT 2024</a>
+                                <a href="#">CLAT Syllabus</a>
+                                <a href="#">CLAT Preparation</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CUET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CUET 2024</a>
+                                <a href="#">CUET Syllabus</a>
+                                <a href="#">CUET Question Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">Foundation Courses</a>
+                            <div class="nested-dropdown">
+                                <a href="#">Class 6</a>
+                                <a href="#">Class 7</a>
+                                <a href="#">Class 8</a>
+                                <a href="#">Class 9</a>
+                                <a href="#">Class 10</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="allcard.html">Test Series</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="btn-login" onclick="location.href='loginsignup.html'">Login</button>
+                <button class="btn-signup" onclick="location.href='loginsignup.html'">Sign Up</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+   
+    <!-- NEET Test Series Card -->
+    <div class="course-card">
+        <div class="online-label">TEST SERIES</div>
+        <div class="course-card-header">NEET TEST SERIES</div>
+        <div class="course-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="NEET Test Series" class="course-image">
+            <ul>
+                <li>Chapter-Wise Mock Tests</li>
+                <li>Full-Length Tests with Solutions</li>
+                <li>Performance Analysis</li>
+                <li>Detailed Solutions & Feedback</li>
+            </ul>
+            <div class="price">₹2,499 <span class="original-price">₹3,000</span></div>
+            <div class="discount">Discount of 17% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JEE Test Series Card -->
+    <div class="course-card">
+        <div class="online-label">TEST SERIES</div>
+        <div class="course-card-header">JEE TEST SERIES</div>
+        <div class="course-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="JEE Test Series" class="course-image">
+            <ul>
+                <li>Advanced Mock Tests</li>
+                <li>Topic-Wise Questions</li>
+                <li>All-India Rank Comparison</li>
+                <li>In-Depth Solutions</li>
+            </ul>
+            <div class="price">₹2,999 <span class="original-price">₹3,500</span></div>
+            <div class="discount">Discount of 14% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLAT Test Series Card -->
+    <div class="course-card">
+        <div class="online-label">TEST SERIES</div>
+        <div class="course-card-header">CLAT TEST SERIES</div>
+        <div class="course-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="CLAT Test Series" class="course-image">
+            <ul>
+                <li>Previous Year Papers</li>
+                <li>Comprehensive Mock Tests</li>
+                <li>Topic-Based Analysis</li>
+                <li>Detailed Feedback</li>
+            </ul>
+            <div class="price">₹1,999 <span class="original-price">₹2,300</span></div>
+            <div class="discount">Discount of 13% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUET Test Series Card -->
+    <div class="course-card">
+        <div class="online-label">TEST SERIES</div>
+        <div class="course-card-header">CUET TEST SERIES</div>
+        <div class="course-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="CUET Test Series" class="course-image">
+            <ul>
+                <li>Topic-Based Tests</li>
+                <li>Mock Exams</li>
+                <li>Real-Time Performance Tracking</li>
+                <li>Expert Evaluation</li>
+            </ul>
+            <div class="price">₹1,799 <span class="original-price">₹2,200</span></div>
+            <div class="discount">Discount of 18% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Foundation Test Series Card -->
+    <div class="course-card">
+        <div class="online-label">TEST SERIES</div>
+        <div class="course-card-header">FOUNDATION TEST SERIES</div>
+        <div class="course-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="Foundation Test Series" class="course-image">
+            <ul>
+                <li>Concept-Based Tests</li>
+                <li>Chapter-Wise Questions</li>
+                <li>Quick Feedback</li>
+                <li>Performance Reports</li>
+            </ul>
+            <div class="price">₹1,499 <span class="original-price">₹1,800</span></div>
+            <div class="discount">Discount of 17% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

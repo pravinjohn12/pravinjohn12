@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            text-align: center;
+            padding: 60px 0;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #ffffff;
+            opacity: 0.9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-center {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-right a, .nav-center a {
+            text-decoration: none;
+            color: hsl(0, 3%, 6%);
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-right a:hover, .nav-center a:hover {
+            color: #5895f1;
+        }
+
+        /* Dropdown Styling */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ffffff;
+            color: #5895f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Nested Dropdown Styling */
+        .nested-dropdown {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover .nested-dropdown {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        .show {
+            display: flex !important;
+            flex-direction: column;
+            gap: 15px;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-center {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-right a {
+                display: inline-block;
+                padding: 10px 20px;
+                border-radius: 5px;
+                background-color: #007BFF;
+                color: #ffffff;
+                font-size: 0.9rem;
+                font-weight: bold;
+                text-decoration: none;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .nav-right a:hover {
+                background-color: #0056b3;
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+                transform: translateY(-2px);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .btn-login, .btn-signup {
+    display: inline-block;
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #007BFF; /* Blue background for buttons */
+    color: white; /* White text */
+    font-size: 1rem; /* Font size */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth hover transition */
+    text-decoration: none; /* Remove underline */
+    text-align: center; /* Center the text inside the button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.btn-login:hover, .btn-signup:hover {
+    background-color: #0056b3; /* Darker blue for hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7fcff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .course-intro {
+    padding: 50px 20px; 
+    width: 100%;/* Add padding for spacing */
+    text-align: center;
+    background-image: url(''); /* Replace 'your-image-path.jpg' with the URL of your image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Make the background static while scrolling */
+    color: #007BFF; /* Make the text white for contrast */
+    border-radius: 12px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for a polished look */
+}
+
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+    width: 280px;
+    background: linear-gradient(145deg, #ffffff, #e6f7ff);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Ensure the positioning context for z-index */
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.online-label {
+    position: absolute;
+    top: 60px;
+    left: 4px;
+    background: #2a9d8f;
+    color: white;
+    padding: 2px 7px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Ensure label stays above the card */
+}
+
+
+        .course-card-header {
+            background: linear-gradient(90deg, #457b9d, #2a9d8f);
+            color: #ffffff;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .course-card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            color: #555555;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .course-card-body ul li {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .course-card-body ul li::before {
+            content: "✔";
+            color: #2a9d8f;
+            margin-right: 8px;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999999;
+            font-size: 0.75rem;
+            margin-left: 5px;
+        }
+
+        .discount {
+            font-size: 0.8rem;
+            color: #e63946;
+            margin-bottom: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .button {
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button.explore {
+            background: #2a9d8f;
+            color: white;
+        }
+
+        .button.explore:hover {
+            background: #217867;
+        }
+
+        .button.buy-now {
+            background: linear-gradient(90deg, #484bf0, #396ae8);
+            color: white;
+        }
+
+        .button.buy-now:hover {
+            background: linear-gradient(90deg, #d63244, #ff6840);
+        }
+        
+       
+ 
+  
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="ui.html">
+                <img src="https://aazadacademy.com/wp-content/uploads/2024/08/logo3-e1724488611802.png" alt="Aazad Academy">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-center">
+                <li><a href="changes.html">Home</a></li>
+                <li><a href="allcard.html">Courses</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#">Study Materials</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <a href="#">NEET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">NEET 2024</a>
+                                <a href="subjects.html">NEET Syllabus</a>
+                                <a href="#">NEET Sample Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">JEE</a>
+                            <div class="nested-dropdown">
+                                <a href="#">JEE 2024</a>
+                                <a href="#">JEE Syllabus</a>
+                                <a href="#">JEE Question Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CLAT</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLAT 2024</a>
+                                <a href="syllabus.html">CLAT Syllabus</a>
+                                <a href="#">CLAT Preparation</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CUET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CUET 2024</a>
+                                <a href="#">CUET Syllabus</a>
+                                <a href="#">CUET Question Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">Foundation Courses</a>
+                            <div class="nested-dropdown">
+                                <a href="#">Class 6</a>
+                                <a href="#">Class 7</a>
+                                <a href="#">Class 8</a>
+                                <a href="#">Class 9</a>
+                                <a href="#">Class 10</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="allcard.html">Test Series</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="btn-login" onclick="location.href='loginsignup.html'">Login</button>
+                <button class="btn-signup" onclick="location.href='loginsignup.html'">Sign Up</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+    <!-- Course Intro Section -->
+
+
+
+        <br>
+        <br>
+        <h1>Explore Our Top Courses</h1>
+        <p>
+            Welcome to our premium selection of online courses for the upcoming 2026 academic year! 
+            Whether you're preparing for NEET, JEE, CLAT, CUET, Olympiad, or foundation courses, 
+            we offer high-quality study materials, expert guidance, and interactive classes. 
+            Our courses are designed to help you excel in your exams and build a strong foundation 
+            for future success. Browse through the offerings below and take the first step 
+            towards achieving your academic goals.
+        </p>
+    
+    
+   <br>
+   <br>
+   <br>
+   
+    <!-- Course Cards Container -->
+    <div class="container">
+        <!-- NEET Card -->
+        <div class="course-card">
+            <div class="online-label">ONLINE</div>
+            <div class="course-card-header">NEET CLASS 2026</div>
+            <div class="course-card-body">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="NEET Course Image" class="course-image">
+                <ul>
+                    <li>LIVE CLASSES with Notes</li>
+                    <li>DPPs with Video Solution</li>
+                    <li>Regular Test</li>
+                    <li>24x7 Doubt Support</li>
+                </ul>
+                <div class="price">₹4,999 <span class="original-price">₹5,600</span></div>
+                <div class="discount">Discount of 11% applied</div>
+                <div class="buttons">
+                    <button class="button explore">EXPLORE</button>
+                    <button class="button buy-now">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- JEE Card -->
+        <div class="course-card">
+            <div class="online-label">ONLINE</div>
+            <div class="course-card-header">JEE CLASS 2026</div>
+            <div class="course-card-body">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="JEE Course Image" class="course-image">
+                <ul>
+                    <li>Advanced Physics Classes</li>
+                    <li>Math Problem-Solving Sessions</li>
+                    <li>Mock Exams with Rankings</li>
+                    <li>24x7 Support for Concepts</li>
+                </ul>
+                <div class="price">₹5,499 <span class="original-price">₹6,000</span></div>
+                <div class="discount">Discount of 8% applied</div>
+                <div class="buttons">
+                    <button class="button explore">EXPLORE</button>
+                    <button class="button buy-now">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLAT Card -->
+        <div class="course-card">
+            <div class="online-label">ONLINE</div>
+            <div class="course-card-header">CLAT CLASS 2026</div>
+            <div class="course-card-body">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="CLAT Course Image" class="course-image">
+                <ul>
+                    <li>Legal Aptitude Training</li>
+                    <li>Critical Reasoning Workshops</li>
+                    <li>Practice Papers</li>
+                    <li>Guidance by Experts</li>
+                </ul>
+                <div class="price">₹3,999 <span class="original-price">₹4,300</span></div>
+                <div class="discount">Discount of 7% applied</div>
+                <div class="buttons">
+                    <button class="button explore">EXPLORE</button>
+                    <button class="button buy-now">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CUET Card -->
+        <div class="course-card">
+            <div class="online-label">ONLINE</div>
+            <div class="course-card-header">CUET CLASS 2026</div>
+            <div class="course-card-body">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="CUET Course Image" class="course-image">
+                <ul>
+                    <li>Detailed Study Material</li>
+                    <li>Personalized Assessments</li>
+                    <li>Practice Papers</li>
+                    <li>Mock Exams</li>
+                </ul>
+                <div class="price">₹4,299 <span class="original-price">₹4,700</span></div>
+                <div class="discount">Discount of 9% applied</div>
+                <div class="buttons">
+                    <button class="button explore">EXPLORE</button>
+                    <button class="button buy-now">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Foundation Card -->
+        <div class="course-card">
+            <div class="online-label">ONLINE</div>
+            <div class="course-card-header">FOUNDATION CLASS 2026</div>
+            <div class="course-card-body">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="Foundation Course Image" class="course-image">
+                <ul>
+                    <li>Basic Conceptual Classes</li>
+                    <li>Strengthen Fundamentals</li>
+                    <li>Interactive Quizzes</li>
+                    <li>Expert Doubt Support</li>
+                </ul>
+                <div class="price">₹3,499 <span class="original-price">₹3,900</span></div>
+                <div class="discount">Discount of 10% applied</div>
+                <div class="buttons">
+                    <button class="button explore">EXPLORE</button>
+                    <button class="button buy-now">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Olympiad Card -->
+        <div class="course-card">
+            <div class="online-label">ONLINE</div>
+            <div class="course-card-header">OLYMPIAD CLASS 2026</div>
+            <div class="course-card-body">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="Olympiad Course Image" class="course-image">
+                <ul>
+                    <li>Comprehensive Study Materials</li>
+                    <li>Topic-wise Practice Questions</li>
+                    <li>Mock Tests with Detailed Analysis</li>
+                    <li>Expert Guidance for Problem Solving</li>
+                </ul>
+                <div class="price">₹3,999 <span class="original-price">₹4,500</span></div>
+                <div class="discount">Discount of 11% applied</div>
+                <div class="buttons">
+                    <button class="button explore">EXPLORE</button>
+                    <button class="button buy-now">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+          <!-- About Section -->
+          <div class="footer-section about">
+            <h3>About Aazad Academy</h3>
+            <p>
+              Aazad Academy provides top-notch coaching for NEET and JEE aspirants. With a focus on quality education and rigorous practice, Aazad Academy empowers students to achieve their academic goals.
+            </p>
+            <div class="social-icons">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+              <a href="#"><i class="fa fa-youtube"></i></a>
+            </div>
+          </div>
+    
+          <!-- Study Material Section -->
+          <div class="footer-section study-material">
+            <h3>Study Material</h3>
+            <ul>
+              <li><a href="#">Physics Notes</a></li>
+              <li><a href="#">Chemistry Notes</a></li>
+              <li><a href="#">Biology Notes</a></li>
+              <li><a href="#">Mathematics Notes</a></li>
+            </ul>
+          </div>
+    
+          <!-- Courses Section -->
+          <div class="footer-section courses">
+            <h3>Courses</h3>
+            <ul>
+              <li><a href="#">Repeater Program</a></li>
+              <li><a href="#">Crash Course</a></li>
+              <li><a href="#">Foundation Program</a></li>
+            </ul>
+          </div>
+    
+          <!-- Test Series Section -->
+          <div class="footer-section test-series">
+            <h3>Test Series</h3>
+            <ul>
+              <li><a href="#">Chapter-wise Tests</a></li>
+              <li><a href="#">Unit Tests</a></li>
+              <li><a href="#">Full-Length Tests</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <!-- Contact Info and Map -->
+        <div class="contact-map-container">
+          <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p><strong>Address:</strong> Aazad Academy, Tenkasi, Tamil Nadu, 627811</p>
+            <p><strong>Phone:</strong> +91 98765 43210</p>
+            <p><strong>Email:</strong> <a href="mailto:info@aazadacademy.com" style="color: #fff;">info@aazadacademy.com</a></p>
+          </div>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.233515112204!2d77.30086171533277!3d8.959789593561847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04950cd740267d%3A0x11a0c2aa7307460e!2sTenkasi%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1699456005557!5m2!1sen!2sin"
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p>Copyright 2025 © Aazad Academy, All Rights Reserved.</p>
+          <p><a href="#">Privacy Policy</a></p>
+        </div>
+      </footer>
+    
+      <!-- Font Awesome for Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </body>
+    </html>

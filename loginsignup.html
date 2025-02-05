@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Improved Box Design with JS</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #00c4cc, #005b99);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 30px;
+      width: 340px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      border: 2px solid transparent;
+      background-image: linear-gradient(white, white), linear-gradient(135deg, #00c4cc, #005b99);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 196, 204, 0.2), rgba(0, 91, 153, 0.05));
+      z-index: -1;
+      transform: rotate(30deg);
+    }
+
+    h2 {
+      text-align: center;
+      color: #005b99;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0;
+    }
+
+    .toggle-buttons button {
+      background-color: #f0f0f0;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin: 0 5px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .toggle-buttons .active {
+      background: linear-gradient(135deg, #00c4cc, #005b99);
+      color: white;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    input {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-top: 5px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #00c4cc;
+      outline: none;
+      box-shadow: 0 0 8px rgba(0, 196, 204, 0.5);
+    }
+
+    .password-field {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .password-field input {
+      flex: 1;
+    }
+
+    .password-field .icon {
+      position: absolute;
+      right: 15px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #666;
+      transition: color 0.3s ease;
+    }
+
+    .password-field .icon:hover {
+      color: #00c4cc;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+      font-size: 12px;
+    }
+
+    .options label {
+      color: #666;
+    }
+
+    .options a {
+      color: #005b99;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .options a:hover {
+      color: #00c4cc;
+    }
+
+    .submit-button {
+      background: linear-gradient(135deg, #00c4cc, #005b99);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .submit-button:hover {
+      background: linear-gradient(135deg, #009da2, #00477a);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Login Form -->
+    <div class="form-container" id="login-container">
+      <h2>Welcome to lorem.!</h2>
+      <div class="toggle-buttons">
+        <button class="active" id="show-login">Login</button>
+        <button id="show-register">Register</button>
+      </div>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <form>
+        <label for="username">User name</label>
+        <input type="text" id="username" placeholder="Enter your User name">
+
+        <label for="password">Password</label>
+        <div class="password-field">
+          <input type="password" id="password" placeholder="Enter your Password">
+          <span class="icon" id="toggle-password">&#128065;</span>
+        </div>
+
+        <div class="options">
+          <label><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <button class="submit-button">Login</button>
+      </form>
+    </div>
+
+    <!-- Register Form -->
+    <div class="form-container" id="register-container" style="display: none;">
+      <h2>Welcome to lorem.!</h2>
+      <div class="toggle-buttons">
+        <button id="show-login">Login</button>
+        <button class="active" id="show-register">Register</button>
+      </div>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <form>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your Email Address">
+
+        <label for="username">User name</label>
+        <input type="text" id="username" placeholder="Enter your User name">
+
+        <label for="password">Password</label>
+        <div class="password-field">
+          <input type="password" id="password" placeholder="Enter your Password">
+          <span class="icon" id="toggle-password-register">&#128065;</span>
+        </div>
+
+        <button class="submit-button">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for functionality
+    const loginContainer = document.getElementById("login-container");
+    const registerContainer = document.getElementById("register-container");
+    const showLoginBtn = document.getElementById("show-login");
+    const showRegisterBtn = document.getElementById("show-register");
+    const togglePassword = document.getElementById("toggle-password");
+    const togglePasswordRegister = document.getElementById("toggle-password-register");
+
+    // Toggle between Login and Register forms
+    showLoginBtn.addEventListener("click", () => {
+      loginContainer.style.display = "block";
+      registerContainer.style.display = "none";
+    });
+
+    showRegisterBtn.addEventListener("click", () => {
+      loginContainer.style.display = "none";
+      registerContainer.style.display = "block";
+    });
+
+    // Toggle password visibility
+    togglePassword.addEventListener("click", () => {
+      const passwordInput = document.getElementById("password");
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePassword.textContent = "🙈";
+      } else {
+        passwordInput.type = "password";
+        togglePassword.textContent = "👁️";
+      }
+    });
+
+    togglePasswordRegister.addEventListener("click", () => {
+      const passwordInput = document.querySelector("#register-container #password");
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePasswordRegister.textContent = "🙈";
+      } else {
+        passwordInput.type = "password";
+        togglePasswordRegister.textContent = "👁️";
+      }
+    });
+  </script>
+</body>
+</html>

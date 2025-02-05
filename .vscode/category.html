@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Categories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fb;
+            color: #333;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .course-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #eef1f5;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #5f6368;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .tag:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+        .explore {
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .explore:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .explore::before {
+            content: '→';
+            margin-left: 10px;
+            font-size: 16px;
+            transform: translateX(2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- NEET Card -->
+        <div class="course-card">
+            <div class="course-title">NEET</div>
+            <div class="tags">
+                <span class="tag">Class 11</span>
+                <span class="tag">Class 12</span>
+                <span class="tag">Dropper</span>
+            </div>
+            <a href="nextout.html" class="explore">Explore Category</a>
+        </div>
+
+        <!-- JEE Card -->
+        <div class="course-card">
+            <div class="course-title">IIT JEE</div>
+            <div class="tags">
+                <span class="tag">Class 11</span>
+                <span class="tag">Class 12</span>
+                <span class="tag">Dropper</span>
+            </div>
+            <a href="#" class="explore">Explore Category</a>
+        </div>
+
+        <!-- CLAT Card -->
+        <div class="course-card">
+            <div class="course-title">CLAT</div>
+            <div class="tags">
+                <span class="tag">Law Entrance</span>
+                <span class="tag">UG & PG</span>
+            </div>
+            <a href="#" class="explore">Explore Category</a>
+        </div>
+
+        <!-- CUET Card -->
+        <div class="course-card">
+            <div class="course-title">CUET</div>
+            <div class="tags">
+                <span class="tag">UG Admissions</span>
+                <span class="tag">Test Series</span>
+            </div>
+            <a href="#" class="explore">Explore Category</a>
+        </div>
+
+        <!-- Foundation Courses Card -->
+        <div class="course-card">
+            <div class="course-title">Foundation Courses</div>
+            <div class="tags">
+                <span class="tag">Class 8</span>
+                <span class="tag">Class 9</span>
+                <span class="tag">Class 10</span>
+            </div>
+            <a href="#" class="explore">Explore Category</a>
+        </div>
+
+        <!-- Olympiad Card -->
+        <div class="course-card">
+            <div class="course-title">Olympiad</div>
+            <div class="tags">
+                <span class="tag">Science</span>
+                <span class="tag">Mathematics</span>
+                <span class="tag">International</span>
+            </div>
+            <a href="#" class="explore">Explore Category</a>
+        </div>
+    </div>
+
+</body>
+</html>
