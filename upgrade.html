@@ -1200,7 +1200,61 @@
             <nav class="nav">
                 <ul class="nav-center">
                     <li><a href="upgrade.html">Home</a></li>
-                    <li><a href="courses.html">Courses</a></li>
+                    <li class="dropdown">
+                        <a href="#">courses</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-item">
+                                <a href="#">NEET</a>
+                                <div class="nested-dropdown">
+                                    <a href="11thpage.html">CLASS 11TH</a>
+                                    <a href="subjects.html">CLASS 12TH</a>
+                                    <a href="#">CLASS 12 PLUS</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-item">
+                                <a href="#">JEE</a>
+                                <div class="nested-dropdown">
+                                    <a href="#">CLASS 11TH</a>
+                                    <a href="subjects.html">CLASS 12TH</a>
+                                    <a href="#">CLASS 12 PLUS</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-item">
+                                <a href="#">CLAT</a>
+                                <div class="nested-dropdown">
+                                    <a href="#">CLASS 11TH</a>
+                                    <a href="subjects.html">CLASS 12TH</a>
+                                    <a href="#">CLASS 12 PLUS</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-item">
+                                <a href="#">CUET</a>
+                                <div class="nested-dropdown">
+                                    <a href="#">CLASS 11TH</a>
+                                    <a href="subjects.html">CLASS 12TH</a>
+                                    <a href="#">CLASS 12 PLUS</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-item">
+                                <a href="#">OLYMPIAD</a>
+                                <div class="nested-dropdown">
+                                    <a href="#">CLASS 11TH</a>
+                                    <a href="subjects.html">CLASS 12TH</a>
+                                    <a href="#">CLASS 12 PLUS</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-item">
+                                <a href="#">Foundation Courses</a>
+                                <div class="nested-dropdown">
+                                    <a href="#">Class 6</a>
+                                    <a href="#">Class 7</a>
+                                    <a href="#">Class 8</a>
+                                    <a href="#">Class 9</a>
+                                    <a href="#">Class 10</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     <li><a href="about.html">About Us</a></li>
                     <li class="dropdown">
                         <a href="#">Study Materials</a>
@@ -1209,7 +1263,7 @@
                                 <a href="#">NEET</a>
                                 <div class="nested-dropdown">
                                     <a href="#">NEET 2024</a>
-                                    <a href="subjects.html">NEET Syllabus</a>
+                                    <a href="neet.html">NEET Syllabus</a>
                                     <a href="#">NEET Sample Papers</a>
                                 </div>
                             </div>
@@ -1238,6 +1292,14 @@
                                 </div>
                             </div>
                             <div class="dropdown-item">
+                                <a href="#">OLYMPIAD</a>
+                                <div class="nested-dropdown">
+                                    <a href="#">CUET 2024</a>
+                                    <a href="#">CUET Syllabus</a>
+                                    <a href="#">CUET Question Papers</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-item">
                                 <a href="#">Foundation Courses</a>
                                 <div class="nested-dropdown">
                                     <a href="#">Class 6</a>
@@ -1249,7 +1311,7 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="testseries.html">Test Series</a></li>
+                    <li><a href="T1.HTML">Test Series</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <div class="nav-right">
@@ -1337,11 +1399,7 @@
             menuToggle.addEventListener('click', () => {
                 navMenu.classList.toggle('show');
             });
-        </script>
-        
-    
-
-     
+        </script> 
     <div id="neet-card" class="course-card">
         <div class="online-label">ONLINE</div>
         <div class="course-card-header">NEET CLASS 2026</div>
@@ -1353,13 +1411,11 @@
                 <li>Regular Test</li>
                 <li>24x7 Doubt Support</li>
             </ul>
-            <div class="price">
-                ₹4,999 <span class="original-price">₹5,600</span>
-            </div>
-            <div class="discount">Discount of 11% applied</div>
+           
+            <div class="discount">Comming soon</div>
             <div class="buttons">
                 <button class="button explore" onclick="exploreCourse('NEET')">EXPLORE</button>
-                <button class="button buy-now" onclick="openBuyNowModal('NEET')">BUY NOW</button>
+             
             </div>
         </div>
     </div>
@@ -1375,31 +1431,17 @@
                 <li>Regular Test</li>
                 <li>24x7 Doubt Support</li>
             </ul>
-            <div class="price">
-                ₹5,499 <span class="original-price">₹6,200</span>
-            </div>
-            <div class="discount">Discount of 11% applied</div>
+          
+            <div class="discount">Comming soon</div>
             <div class="buttons">
                 <button class="button explore" onclick="exploreCourse('JEE')">EXPLORE</button>
-                <button class="button buy-now" onclick="openBuyNowModal('JEE')">BUY NOW</button>
+             
             </div>
         </div>
     </div>
 
     <!-- Buy Now Modal -->
-    <div id="buy-now-modal" class="buy-now-modal">
-        <div class="buy-now-modal-content">
-            <h3>Complete Your Purchase</h3>
-            <p>Fill in your details below to proceed with the purchase.</p>
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Email Address">
-            <input type="text" placeholder="Card Number">
-            <input type="text" placeholder="Expiry Date">
-            <input type="text" placeholder="CVV">
-            <button onclick="confirmPurchase()">CONFIRM PURCHASE</button>
-            <button class="close-btn" onclick="closeBuyNowModal()">CLOSE</button>
-        </div>
-    </div>
+  
     <div class="course-card">
         <div class="online-label">ONLINE</div>
         <div class="course-card-header">
@@ -1416,7 +1458,7 @@
             <div class="price">
                 Free
             </div>
-            <div class="discount">Limited Time Offer</div>
+          
             <div class="buttons">
                 <button class="button explore" onclick="redirectToPage()">TAKE TEST</button>
               </div>
@@ -1463,13 +1505,11 @@
                         <li>Regular Test</li>
                         <li>24x7 Doubt Support</li>
                     </ul>
-                    <div class="price">
-                        ₹4,999 <span class="original-price">₹5,600</span>
-                    </div>
-                    <div class="discount">Discount of 11% applied</div>
+                    
+                    <div class="discount">Comming soon</div>
                     <div class="buttons">
                         <button class="button explore" onclick="exploreCourse('${course}')">EXPLORE</button>
-                        <button class="button buy-now" onclick="openBuyNowModal('${course}')">BUY NOW</button>
+                        
                     </div>
                 </div>
             `;
@@ -1500,7 +1540,7 @@
             <span class="tag">Class 12</span>
             <span class="tag">Dropper</span>
         </div>
-        <a href="main/explore.html" class="explore">Explore Category</a>
+        <a href="11thpage.html" class="explore">Explore Category</a>
     </div>
 
     <!-- JEE Card -->
@@ -1511,7 +1551,7 @@
             <span class="tag">Class 12</span>
             <span class="tag">Dropper</span>
         </div>
-        <a href="main/explore.html" class="explore">Explore Category</a>
+        <a href="11thpage.html" class="explore">Explore Category</a>
     </div>
 
     <!-- CLAT Card -->
@@ -1521,7 +1561,7 @@
             <span class="tag">Law Entrance</span>
             <span class="tag">UG & PG</span>
         </div>
-        <a href="main/explore.html" class="explore">Explore Category</a>
+        <a href="11thpage.html" class="explore">Explore Category</a>
     </div>
 
     <!-- CUET Card -->
@@ -1531,7 +1571,7 @@
             <span class="tag">UG Admissions</span>
             <span class="tag">Test Series</span>
         </div>
-        <a href="main/explore.html" class="explore">Explore Category</a>
+        <a href="11thpage.html" class="explore">Explore Category</a>
     </div>
 
     <!-- Foundation Courses Card -->
@@ -1542,7 +1582,7 @@
             <span class="tag">Class 9</span>
             <span class="tag">Class 10</span>
         </div>
-        <a href="main/explore.html" class="explore">Explore Category</a>
+        <a href="11thpage.html" class="explore">Explore Category</a>
     </div>
 
     <!-- Olympiad Card -->
@@ -1553,12 +1593,10 @@
             <span class="tag">Mathematics</span>
             <span class="tag">International</span>
         </div>
-        <a href="main/explore.html" class="explore">Explore Category</a>
+        <a href="11thpage.html" class="explore">Explore Category</a>
     </div>
 </div>
-
-
-     
+   
     <!-- Main Course Cards for NEET and JEE -->
    
  
@@ -1678,6 +1716,7 @@
             </div>
         </div>
     </script>
+
     <footer>
         <div class="footer-container">
           <!-- About Section -->
@@ -1745,6 +1784,7 @@
               allowfullscreen="" 
               loading="lazy" 
               referrerpolicy="no-referrer-when-downgrade">
+              
             </iframe>
           </div>
         </div>
@@ -1760,10 +1800,3 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </body>
     </html>
-    
-
-    
-
-    </body>
-    </html>
-    
