@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore NEET Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .course-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .course-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .price {
+            color: #28a745;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .buy-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .buy-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Explore NEET Courses</h2>
+            <p>Select the best course for your NEET preparation</p>
+        </div>
+        
+        <div class="course-list">
+            <div class="course-card">
+                <h3 class="course-title">NEET Nurture Biology</h3>
+                <p>Class 11 • 1 Year</p>
+                <p class="price">₹4,200 <del>₹5,600</del></p>
+                <button class="buy-button">Enroll Now</button>
+            </div>
+            
+            <div class="course-card">
+                <h3 class="course-title">NEET Growth (Physics & Chemistry)</h3>
+                <p>Class 12 • 1 Year</p>
+                <p class="price">₹5,800 <del>₹7,200</del></p>
+                <button class="buy-button">Enroll Now</button>
+            </div>
+            
+            <div class="course-card">
+                <h3 class="course-title">NEET Full Syllabus (PCB)</h3>
+                <p>Class 11 & 12 • 2 Years</p>
+                <p class="price">₹9,999 <del>₹12,500</del></p>
+                <button class="buy-button">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

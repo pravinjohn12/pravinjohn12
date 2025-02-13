@@ -3,42 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Design</title>
+    <title>Aazad Academy Test Series</title>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+        /* Background Image and Styling */
+    
+        .home {
+            text-align: center;
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+            min-height: 100vh;
+        }
+
+        .breadcrumb {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            margin: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+        }
+
+        .card i {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+
+        .home {
+    background-image: url('https://www.thestatesman.com/wp-content/uploads/2020/09/QT-Indian-students-2.jpg'); /* Update with your image path */
+    background-size: cover;  /* Ensures the image covers the entire div */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    background-attachment: fixed; /* Creates a parallax effect */
+    color: white; /* Makes text readable */
+    padding: 50px;
+    width: 100%;
     position: relative;
+    min-height: 100vh; /* Ensures full screen height */
 }
 
-.content {
-    position: relative; /* Ensure content is positioned */
-    z-index: 10;
-    color: white;
-    left: -350px;
-    padding-left: 0px; /* This will ensure the content is above .blob */
-}
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
 
-.blob {
-    position: absolute;
-    top: -200px;
-    left: 0;
-    width: 70%;
-    height: 110%;
-    background-color: #7e57c2;
-    clip-path: ellipse(75% 50% at 25% 50%);
-    z-index: 1; /* Keep this lower than the content */
-}
-
-
-        
-      
+        header {
+            background: white;
+            text-align: center;
+            padding: 60px 0;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
 
         * {
             margin: 0;
@@ -252,91 +316,166 @@
     transform: translateY(-2px); /* Slight lift on hover */
 }
 
+body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7fcff;
+            margin: 0;
+            padding: 20px;
+        }
 
-
-.rago-org {
-            position: absolute;
-            width: 500px;
-            height: 520px;
-            top: 45%; 
-            left: 80%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-          
-        }
-        .student-image {
-            width: 100px;
-            border-radius: 12px;
-            margin: 10px;
-            padding: 0px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 90vh;
-        }
-        .container {
-            top: 100px;
-            padding-left: 120px;
-            margin-left: 50px;
-
-
-        }
-        .content {
-            max-width: 500px;
-            padding-left:20px ;
-        }
-        h1 {
-            font-size: 2em;
-    color: #FFD700;
-
-        }
-        .highlight {
-            color: #ffffff;
-           
-            border-radius: 5px;
-        }
-        p {
-            color: #ffffff;
-            margin-top: 10px;
-        }
-        .cta-button {
-            background: #4F46E5;
-            color: white;
-            padding: 30px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .cta-button:hover {
-            background: #3b37d1;
-        }
-        .badge {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.982);
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .badge1 {
-            top: 300px;
-            left: 900px;
-        }
-        .badge2 {
-            bottom: 400px;
-            left: 1300px;
-        }
-        .badge3 {
-            bottom: 160px;
-            right: 120px;
-        }
-        
-        .badge span {
-    color: #FFD700;
-    font-weight: bold;
+        .course-intro {
+    padding: 50px 20px; 
+    width: 100%;/* Add padding for spacing */
+    text-align: center;
+    background-image: url(''); /* Replace 'your-image-path.jpg' with the URL of your image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Make the background static while scrolling */
+    color: #007BFF; /* Make the text white for contrast */
+    border-radius: 12px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for a polished look */
 }
 
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+    width: 280px;
+    background: linear-gradient(145deg, #ffffff, #e6f7ff);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Ensure the positioning context for z-index */
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.online-label {
+    position: absolute;
+    top: 60px;
+    left: 4px;
+    background: #2a9d8f;
+    color: white;
+    padding: 2px 7px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Ensure label stays above the card */
+}
+
+
+        .course-card-header {
+            background: linear-gradient(90deg, #457b9d, #2a9d8f);
+            color: #ffffff;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .course-card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            color: #555555;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .course-card-body ul li {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .course-card-body ul li::before {
+            content: "✔";
+            color: #2a9d8f;
+            margin-right: 8px;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999999;
+            font-size: 0.75rem;
+            margin-left: 5px;
+        }
+
+        .discount {
+            font-size: 0.8rem;
+            color: #e63946;
+            margin-bottom: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .button {
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button.explore {
+            background: #2a9d8f;
+            color: white;
+        }
+
+        .button.explore:hover {
+            background: #217867;
+        }
+
+        .button.buy-now {
+            background: linear-gradient(90deg, #484bf0, #396ae8);
+            color: white;
+        }
+
+        .button.buy-now:hover {
+            background: linear-gradient(90deg, #d63244, #ff6840);
+        }
+
+     
+
+      
     </style>
 </head>
 <body>
@@ -409,30 +548,163 @@
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </header>
     
-    <script>
-        function toggleMenu() {
-            const navCenter = document.querySelector('.nav-center');
-            navCenter.classList.toggle('show');
-        }
-    </script>
-    <div class="blob"></div>
+  
+    <!-- Content will be inserted here -->
+    <div id="testSeriesContainer"></div>
 
-        <div class="container">
-            <div class="content">
-                <h1>Your Gateway to Success in <span class="highlight">NEET & JEE</span> with Aazad Academy</h1>
-                <p>Experience unparalleled excellence in NEET & JEE preparation at Aazad Academy, where expertise seamlessly merges with innovation ensuring your success in the competitive medical and engineering entrance exams.</p>
-                <button class="cta-button">Get Started</button>
-            </div>
+            <div class="home">
+                <nav class="breadcrumb">
+                    <a href="upgrade.html">Home</a> &gt; <span>Test Series</span>
+                </nav>
+
+                <h1>Aazad Academy Test Series: Boost Your NEET & JEE Preparation</h1>
+                <p>
+                    Preparing for competitive exams like NEET & JEE requires a well-structured strategy and consistent effort. 
+                    Aazad Academy provides high-quality mock tests, study materials, and expert guidance to help students excel in their exams. 
+                    Explore our test series and take your preparation to the next level.
+                    Covers Physics, Chemistry, and Biology with NCERT-focused questions.
+        Includes full-length mock tests and chapter-wise tests.
+        AI-based performance tracking to highlight weak areas.
+        Previous year question integration to familiarize students with exam trends.
+                </p>
           
-            <div>
-            <img src="web des.png" alt="Student" class=" rago-org">
-            <div class="badge badge1"><span>NEET 2022</span> <br><strong>8/22 Students Selected</strong></div>
-            <div class="badge badge2"><span>NEET 2021</span> <br><strong>8/15 Students Selected</strong></div>
-            <div class="badge badge3"><span>NEET 2020</span> <br><strong>8/15 Students Selected</strong></div>
-            </div>
-        </div>
-            </div>
-     
-    </div>
+        
+            
+           <br>
+           <br>
+           <br>
+                <div class="container">
+                    <!-- NEET Card -->
+                    <div class="course-card">
+                        <div class="online-label">TEST SERIES</div>
+                        <div class="course-card-header">NEET TEST SERIES</div>
+                        <div class="course-card-body">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="NEET Course Image" class="course-image">
+                            <ul>
+                                <li>Chapter-Wise Mock Tests</li>
+                                <li>Full-Length Tests with Solutions</li>
+                                <li>Performance Analysis</li>
+                                <li>Detailed Solutions & Feedback</li>
+                            </ul>
+                            <div class="price">₹4,999 <span class="original-price">₹5,600</span></div>
+                            <div class="discount">Discount of 11% applied</div>
+                            <div class="buttons">
+                                <a href="workflow.html" class="button explore">EXPLORE</a>
+                                <button class="button buy-now">BUY NOW</button>
+                            
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- JEE Card -->
+                    <div class="course-card">
+                        <div class="online-label">TEST SERIES</div>
+                        <div class="course-card-header">JEE TEST SERIES</div>
+                        <div class="course-card-body">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="JEE Course Image" class="course-image">
+                            <ul>
+                                <li>Advanced Mock Tests</li>
+                            <li>Topic-Wise Questions</li>
+                            <li>All-India Rank Comparison</li>
+                            <li>In-Depth Solutions</li>
+                            </ul>
+                            <div class="price">₹5,499 <span class="original-price">₹6,000</span></div>
+                            <div class="discount">Discount of 8% applied</div>
+                            <div class="buttons">
+                                <a href="workflow.html" class="button explore">EXPLORE</a>
+                                <button class="button buy-now">BUY NOW</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- CLAT Card -->
+                    <div class="course-card">
+                        <div class="online-label">TEST SERIES</div>
+                        <div class="course-card-header">CLAT TEST SERIES </div>
+                        <div class="course-card-body">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="CLAT Course Image" class="course-image">
+                            <ul>
+                                <li>Previous Year Papers</li>
+                                <li>Comprehensive Mock Tests</li>
+                                <li>Topic-Based Analysis</li>
+                                <li>Detailed Feedback</li>
+                            </ul>
+                            <div class="price">₹3,999 <span class="original-price">₹4,300</span></div>
+                            <div class="discount">Discount of 7% applied</div>
+                            <div class="buttons">
+                                <a href="workflow.html" class="button explore">EXPLORE</a>
+                                <button class="button buy-now">BUY NOW</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- CUET Card -->
+                    <div class="course-card">
+                        <div class="online-label">TEST SERIES</div>
+                        <div class="course-card-header">CUET TEST SERIES</div>
+                        <div class="course-card-body">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="CUET Course Image" class="course-image">
+                            <ul>
+                                <li>Topic-Based Tests</li>
+                                <li>Mock Exams</li>
+                                <li>Real-Time Performance Tracking</li>
+                                <li>Expert Evaluation</li>
+                            </ul>
+                            <div class="price">₹4,299 <span class="original-price">₹4,700</span></div>
+                            <div class="discount">Discount of 9% applied</div>
+                            <div class="buttons">
+                                <a href="workflow.html" class="button explore">EXPLORE</a>
+                                <button class="button buy-now">BUY NOW</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Foundation Card -->
+                    <div class="course-card">
+                        <div class="online-label">TEST SERIES</div>
+                        <div class="course-card-header">FOUNDATION TEST SERIES</div>
+                        <div class="course-card-body">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="Foundation Course Image" class="course-image">
+                            <ul>
+                                <li>Concept-Based Tests</li>
+                                <li>Chapter-Wise Questions</li>
+                                <li>Quick Feedback</li>
+                                <li>Performance Reports</li>
+                            </ul>
+                            <div class="price">₹3,499 <span class="original-price">₹3,900</span></div>
+                            <div class="discount">Discount of 10% applied</div>
+                            <div class="buttons">
+                                <a href="workflow.html" class="button explore">EXPLORE</a>
+                                <button class="button buy-now">BUY NOW</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Olympiad Card -->
+                    <div class="course-card">
+                        <div class="online-label">TEST SERIES</div>
+                        <div class="course-card-header">OLYMPIAD TEST SERIES </div>
+                        <div class="course-card-body">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="Olympiad Course Image" class="course-image">
+                            <ul>
+                                <li>Full-Length Mock Tests</li>
+                                <li>Detailed Performance Analysis</li>
+                                <li>Exam-Specific Question Patterns</li>
+                                <li>Time-Management Strategies</li>
+                            </ul>
+                            <div class="price">₹3,999 <span class="original-price">₹4,500</span></div>
+                            <div class="discount">Discount of 11% applied</div>
+                            <div class="buttons">
+                                <a href="workflow.html" class="button explore">EXPLORE</a>
+                                <button class="button buy-now">BUY NOW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                       
+            
 </body>
 </html>
+
+
+

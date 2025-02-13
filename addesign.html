@@ -3,35 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Design</title>
+    <title>Aazad Academy NEET Test Series</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: white;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+        .tabs {
             display: flex;
             justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .tab-button {
+            background: #007bff;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        .tab-button:hover, .tab-button.active {
+            background: #0056b3;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .enroll-button {
+            display: inline-block;
+            width: 80%;
+            padding: 15px;
+            background: #28a745;
+            color: white;
+            border-radius: 50px;
+            margin-top: 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .enroll-button:hover {
+            background: #218838;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
             align-items: center;
-            height: 90vh;
-            overflow: hidden;
-            position: relative;
         }
-
-        .blob {
-            position: absolute;
-            top: -180px;
-            left: 0;
-            width: 60%;
-            height: 100%;
-            background-color: #7e57c2;
-            clip-path: ellipse(75% 50% at 25% 50%);
+        ul li i {
+            color: #007bff;
+            margin-right: 8px;
         }
-
-
     </style>
 </head>
 <body>
-    <div class="blob"></div>
+    <div class="container">
+        <h1>Aazad Academy NEET Test Series 2024</h1>
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('overview', this)">Overview</button>
+            <button class="tab-button" onclick="openTab('features', this)">Features</button>
+            <button class="tab-button" onclick="openTab('why-us', this)">Why Choose Us</button>
+        </div>
+        
+        <div id="overview" class="tab-content active">
+            <h2>Test Coverage</h2>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> 200+ mock tests including full-length, subject-wise, and topic-wise tests.</li>
+                <li><i class="fas fa-check-circle"></i> Aligned with the latest NEET syllabus and pattern.</li>
+                <li><i class="fas fa-check-circle"></i> Includes previous year NEET questions.</li>
+            </ul>
+        </div>
+        
+        <div id="features" class="tab-content">
+            <h2>High-Quality Questions</h2>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Concept-based and application-oriented questions.</li>
+                <li><i class="fas fa-check-circle"></i> Balanced difficulty levels: Easy, Medium, and Hard.</li>
+                <li><i class="fas fa-check-circle"></i> Regularly updated content to match trends.</li>
+            </ul>
+        </div>
+        
+        <div id="why-us" class="tab-content">
+            <h2>Why Choose Aazad Academy?</h2>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Expert faculty curating all test series.</li>
+                <li><i class="fas fa-check-circle"></i> Performance tracking with percentile rankings.</li>
+                <li><i class="fas fa-check-circle"></i> Affordable and flexible learning plans.</li>
+            </ul>
+        </div>
+        
+        <a href="#" class="enroll-button">Enroll Now</a>
+    </div>
 
+    <script>
+        function openTab(tabId, element) {
+            var contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+
+            var buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
 </body>
 </html>

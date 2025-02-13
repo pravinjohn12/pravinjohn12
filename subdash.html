@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Management Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f6f9;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #004d6a;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #00698b;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 30px;
+        }
+
+        .content h1 {
+            color: #004d6a;
+            text-align: center;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section h2 {
+            color: #004d6a;
+            margin-bottom: 15px;
+        }
+
+        .form-section input, .form-section textarea, .form-section select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-section button {
+            background-color: #007d8f;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .form-section button:hover {
+            background-color: #005f6a;
+        }
+
+        .preview-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .preview-section h3 {
+            color: #004d6a;
+            margin-bottom: 20px;
+        }
+
+        .preview-section .content-box {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .preview-section .content-box h4 {
+            margin-bottom: 10px;
+            color: #004d6a;
+        }
+
+        .preview-section .content-box p {
+            margin-bottom: 10px;
+        }
+
+        .preview-section .content-box img {
+            max-width: 100%;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+
+        .preview-section .content-box iframe {
+            width: 100%;
+            height: 315px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Admin Dashboard</h2>
+    <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Manage Topics</a></li>
+        <li><a href="#">Manage Quizzes</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Logout</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <h1>Manage Course Content</h1>
+
+    <!-- Course Category Selection -->
+    <div class="form-section">
+        <h2>Select Course Category</h2>
+        <select id="course-category-select">
+            <option value="neet">NEET</option>
+            <option value="jee">JEE</option>
+            <option value="clat">CLAT</option>
+            <option value="cuet">CUET</option>
+            <option value="foundation">Foundation</option>
+            <option value="olympiad">Olympiad</option>
+        </select>
+    </div>
+
+    <!-- Subject Selection Based on Course Category -->
+    <div class="form-section">
+        <h2>Select Subject</h2>
+        <select id="subject-select">
+            <!-- Subjects will be dynamically loaded based on course category -->
+        </select>
+    </div>
+
+    <!-- Course Type Selection -->
+  
+
+    <!-- Content Upload Form -->
+    <div class="form-section">
+        <h2>Upload Topic Content</h2>
+        <form id="content-form">
+            <label for="topic-title">Topic Title</label>
+            <input type="text" id="topic-title" name="topic-title" placeholder="Enter topic title" required>
+
+            <label for="topic-description">Description</label>
+            <textarea id="topic-description" name="topic-description" placeholder="Enter topic description" rows="5" required></textarea>
+
+            <label for="image-upload">Upload Image</label>
+            <input type="file" id="image-upload" name="image-upload" required>
+
+            <label for="video-url">Video URL</label>
+            <input type="text" id="video-url" name="video-url" placeholder="Enter video URL" required>
+
+            <label for="pdf-upload">Upload PDF</label>
+            <input type="file" id="pdf-upload" name="pdf-upload" required>
+
+            <button type="submit">Publish Content</button>
+        </form>
+    </div>
+
+    <!-- Preview Section -->
+    <div class="preview-section">
+        <h3>Preview Uploaded Content</h3>
+
+        <div class="content-box">
+            <h4>Course Category: <span id="preview-category">NEET</span></h4>
+            <h4>Subject: <span id="preview-subject">Physics</span></h4>
+            <h4>Topic Title: <span id="preview-title">Cell Structure</span></h4>
+            <p><strong>Description:</strong> <span id="preview-description">Cell structure involves various components like organelles that play specific roles within the cell.</span></p>
+            <h4>Image:</h4>
+            <img src="https://via.placeholder.com/800x400?text=Cell+Structure+Preview" alt="Cell Structure Image">
+            <h4>Video:</h4>
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h4>PDF:</h4>
+            <a href="#" target="_blank">Download PDF</a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Mapping of course categories to their subjects
+    const courseSubjects = {
+        neet: ['Physics', 'Chemistry', 'Biology'],
+        jee: ['Mathematics', 'Physics', 'Chemistry'],
+        clat: ['Legal Studies', 'English', 'Current Affairs'],
+        cuet: ['English', 'General Knowledge', 'Mathematics'],
+        foundation: ['Mathematics', 'Science', 'English'],
+        olympiad: ['Mathematics', 'Science', 'General Knowledge']
+    };
+
+    // Handle the course category selection
+    document.getElementById('course-category-select').addEventListener('change', function() {
+        const selectedCategory = this.value;
+        loadSubjects(selectedCategory);
+        updatePreviewCategory(selectedCategory);
+    });
+
+    // Function to dynamically load subjects based on the selected course category
+    function loadSubjects(category) {
+        const subjectSelect = document.getElementById('subject-select');
+        subjectSelect.innerHTML = ''; // Clear existing options
+
+        courseSubjects[category].forEach(function(subject) {
+            const option = document.createElement('option');
+            option.value = subject.toLowerCase();
+            option.textContent = subject;
+            subjectSelect.appendChild(option);
+        });
+    }
+
+    // Update preview section when category is selected
+    function updatePreviewCategory(category) {
+        document.getElementById('preview-category').textContent = category.toUpperCase();
+    }
+
+    // Handle form submission and preview
+    document.getElementById('content-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const topicTitle = document.getElementById('topic-title').value;
+        const topicDescription = document.getElementById('topic-description').value;
+        const selectedSubject = document.getElementById('subject-select').value;
+        const courseType = document.getElementById('course-type-select').value;
+
+        // Update preview section
+        document.getElementById('preview-title').textContent = topicTitle;
+        document.getElementById('preview-description').textContent = topicDescription;
+        document.getElementById('preview-subject').textContent = selectedSubject;
+        document.getElementById('preview-course-type').textContent = courseType;
+    });
+
+    // Initialize with default course category and subjects
+    loadSubjects('neet');
+</script>
+
+</body>
+</html>

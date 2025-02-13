@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Aazad Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Banner Section */
+        .banner {
+            background: url('QT-Indian-students-2.jpg') no-repeat center center/cover;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: white;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .banner::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .banner h1 {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Course Section */
+        .course-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .course-card {
+            background: white;
+            width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .best-course {
+            position: absolute;
+            background: #ff5722;
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            top: 10px;
+            left: 10px;
+            border-radius: 5px;
+        }
+
+        .course-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .course-description {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <h1>Courses</h1>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="#">Home</a> / <span>Courses</span>
+    </div>
+
+    <!-- Course Section -->
+    <div class="course-container">
+        
+        <!-- Course Card 1 -->
+        <div class="course-card">
+            <div class="best-course">Best Course</div>
+            <img src="images/course1.jpg" class="course-image" alt="Course 1">
+            <div class="course-content">
+                <div class="course-title">XI/XII BOARD</div>
+                <div class="course-description">
+                    Class 10th is one of the most relevant standards of formal education. However, class 12th board exam is a milestone.
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Card 2 -->
+        <div class="course-card">
+            <div class="best-course">Best Course</div>
+            <img src="images/course2.jpg" class="course-image" alt="Course 2">
+            <div class="course-content">
+                <div class="course-title">CBSE</div>
+                <div class="course-description">
+                    CBSE is a national-level board of education, which helps students prepare for higher education.
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Card 3 -->
+        <div class="course-card">
+            <div class="best-course">Best Course</div>
+            <img src="images/course3.jpg" class="course-image" alt="Course 3">
+            <div class="course-content">
+                <div class="course-title">MHT CET</div>
+                <div class="course-description">
+                    The MHT-CET is an annual entrance exam conducted by the Government of Maharashtra for technical education.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

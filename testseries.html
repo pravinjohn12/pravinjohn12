@@ -10,7 +10,7 @@
             font-family: 'Arial', sans-serif;
             background-color: #f7fcff;
             margin: 0;
-            padding: 20px;
+            padding: 170px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -28,6 +28,12 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        .h1{
+            padding:5px;
+            color: #ffffff;
+
+        }
+        
         .course-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -144,7 +150,133 @@
             background: linear-gradient(90deg, #d63244, #ff6840);
         }
 
+        
+    
+        .test-card {
+            width: 280px;
+            background: linear-gradient(145deg, #ffffff, #e6f7ff);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
+        .test-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .online-label {
+            position: absolute;
+            top: 60px;
+            left: 4px;
+            background: #2a9d8f;
+            color: white;
+            padding: 2px 7px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .test-card-header {
+            background: linear-gradient(90deg, #457b9d, #2a9d8f);
+            color: #ffffff;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .test-card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .test-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .test-card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            color: #555555;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .test-card-body ul li {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .test-card-body ul li::before {
+            content: "✔";
+            color: #2a9d8f;
+            margin-right: 8px;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999999;
+            font-size: 0.75rem;
+            margin-left: 5px;
+        }
+
+        .discount {
+            font-size: 0.8rem;
+            color: #e63946;
+            margin-bottom: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .button {
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button.explore {
+            background: #2a9d8f;
+            color: white;
+        }
+
+        .button.explore:hover {
+            background: #217867;
+        }
+
+        .button.buy-now {
+            background: linear-gradient(90deg, #484bf0, #396ae8);
+            color: white;
+        }
+
+        .button.buy-now:hover {
+            background: linear-gradient(90deg, #d63244, #ff6840);
+        }
        
 
     </style>
@@ -218,7 +350,10 @@
         </nav>
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </header>
-   
+
+    <h1>Explore Our Test Series
+        Welcome to our expertly crafted test series for the upcoming 2026 academic year! Whether you're preparing for NEET, JEE, CLAT, CUET, Olympiad, or foundation courses, our test series provides:</h1>
+  
     <!-- NEET Test Series Card -->
     <div class="course-card">
         <div class="online-label">TEST SERIES</div>
@@ -281,7 +416,9 @@
             </div>
         </div>
     </div>
+     
 
+    <br>
     <!-- CUET Test Series Card -->
     <div class="course-card">
         <div class="online-label">TEST SERIES</div>
@@ -296,6 +433,31 @@
             </ul>
             <div class="price">₹1,799 <span class="original-price">₹2,200</span></div>
             <div class="discount">Discount of 18% applied</div>
+            <div class="buttons">
+                <button class="button explore">EXPLORE</button>
+                <button class="button buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-card">
+        <!-- Online Label -->
+        <div class="online-label">ONLINE</div>
+        <div class="test-card-header">
+            OLYMPIAD TEST SERIES
+        </div>
+        <div class="test-card-body">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="Test Series Image" class="test-image">
+            <ul>
+                <li>Full-Length Mock Tests</li>
+                <li>Detailed Performance Analysis</li>
+                <li>Exam-Specific Question Patterns</li>
+                <li>Time-Management Strategies</li>
+            </ul>
+            <div class="price">
+                ₹2,999 <span class="original-price">₹3,500</span>
+            </div>
+            <div class="discount">Discount of 14% applied</div>
             <div class="buttons">
                 <button class="button explore">EXPLORE</button>
                 <button class="button buy-now">BUY NOW</button>

@@ -15,7 +15,7 @@ body {
             color: #333;
             line-height: 1.6;
         }
-
+        
         header {
             background: white;
             text-align: center;
@@ -394,21 +394,246 @@ body {
         }
         
        
+        .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .tabs button {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      padding: 12px 25px;
+      margin: 0 10px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: #333;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .tabs button.active {
+      background: #007bff;
+      color: #fff;
+      border-color: #007bff;
+    }
+
+    .tabs button:hover {
+      background: #f0f0f0;
+    }
+
+    .course-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .course-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 25px;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .course-card .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #007bff;
+      color: #fff;
+      font-size: 0.9rem;
+      padding: 7px 15px;
+      border-radius: 20px;
+    }
+
+    .course-card h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .tabs button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .course-card {
+        padding: 15px;
+      }
+    }
+
+
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      text-align: center;
+      padding: 25px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #777;
+    }
  
+  
+      
+        .faq-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .faq-header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #050505;
+           
+        }
+        .faq-header p {
+            margin: 5px 0 0;
+            color: #000000;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            background: white;
+            color: #333;
+            padding: 15px 20px;
+            border-radius: 8px;
+       
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .faq-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question:hover {
+            color: #007BFF;
+        }
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .faq-toggle {
+            font-size: 24px;
+            color: #007BFF;
+            transition: transform 0.3s ease;
+        }
+        .faq-toggle.open {
+            transform: rotate(45deg);
+        }
   
     </style>
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <a href="ui.html">
+            <a href="upgrade.html">
                 <img src="https://aazadacademy.com/wp-content/uploads/2024/08/logo3-e1724488611802.png" alt="Aazad Academy">
             </a>
         </div>
         <nav class="nav">
             <ul class="nav-center">
                 <li><a href="changes.html">Home</a></li>
-                <li><a href="allcard.html">Courses</a></li>
+                <li class="dropdown">
+                    <a href="#">courses</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <a href="#">NEET</a>
+                            <div class="nested-dropdown">
+                                <a href="11thpage.html">CLASS 11TH</a>
+                                <a href="subjects.html">CLASS 12TH</a>
+                                <a href="#">CLASS 12 PLUS</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">JEE</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLASS 11TH</a>
+                                <a href="subjects.html">CLASS 12TH</a>
+                                <a href="#">CLASS 12 PLUS</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CLAT</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLASS 11TH</a>
+                                <a href="subjects.html">CLASS 12TH</a>
+                                <a href="#">CLASS 12 PLUS</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CUET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLASS 11TH</a>
+                                <a href="subjects.html">CLASS 12TH</a>
+                                <a href="#">CLASS 12 PLUS</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">OLYMPIAD</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLASS 11TH</a>
+                                <a href="subjects.html">CLASS 12TH</a>
+                                <a href="#">CLASS 12 PLUS</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">Foundation Courses</a>
+                            <div class="nested-dropdown">
+                                <a href="#">Class 6</a>
+                                <a href="#">Class 7</a>
+                                <a href="#">Class 8</a>
+                                <a href="#">Class 9</a>
+                                <a href="#">Class 10</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="about.html">About Us</a></li>
                 <li class="dropdown">
                     <a href="#">Study Materials</a>
@@ -457,7 +682,7 @@ body {
                         </div>
                     </div>
                 </li>
-                <li><a href="allcard.html">Test Series</a></li>
+                <li><a href="st.html">Test Series</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="nav-right">
@@ -475,12 +700,7 @@ body {
         <br>
         <h1>Explore Our Top Courses</h1>
         <p>
-            Welcome to our premium selection of online courses for the upcoming 2026 academic year! 
-            Whether you're preparing for NEET, JEE, CLAT, CUET, Olympiad, or foundation courses, 
-            we offer high-quality study materials, expert guidance, and interactive classes. 
-            Our courses are designed to help you excel in your exams and build a strong foundation 
-            for future success. Browse through the offerings below and take the first step 
-            towards achieving your academic goals.
+            Preparing for the NEET 2025-26 exam is an important step for students aspiring to enter the medical field. This competitive exam requires careful planning and consistent effort. With the right guidance, online courses, study materials, and preparation tips, students can achieve their goals. Here, we will explore the NEET UG 2025 exam in detail, including its syllabus, eligibility criteria, and tips to prepare.
         </p>
     
     
@@ -488,12 +708,131 @@ body {
    <br>
    <br>
    
+   <section class="cards">
+    <div class="card">
+      <h3>Blogs</h3>
+      <p>Read Our Latest Blogs</p>
+    </div>
+
+    <div class="card">
+      <h3>Online Courses</h3>
+      <p>Access Our Latest Courses</p>
+    </div>
+
+    <div class="card">
+      <h3>Test Series</h3>
+      <p>Practice with Our Mock Test</p>
+    </div>
+
+    <div class="card">
+      <h3>Books</h3>
+      <p>Find Preparation Books</p>
+    </div>
+  </section>
+
+  <!-- Tabs Section -->
+  <section class="tabs">
+    <button class="active" onclick="showCourses('class11')">Class 11</button>
+    <button onclick="showCourses('class12')">Class 12</button>
+    <button onclick="showCourses('dropper')">Dropper</button>
+  </section>
+
+
+  <!-- Course Cards -->   
+    <div class="course-card" data-category="dropper" style="display: none;">
+      <span class="badge">ONLINE</span>
+      <h3>Dropper Batch Intensive</h3>
+    </div>
+    
+  </section>
+  
+
+<script>
+    function exploreCourse(course) {
+        const courseCard = document.getElementById(course.toLowerCase() + '-card');
+        // Change the course card to the detailed view
+        courseCard.innerHTML = `
+            <div class="course-card-header">Course Details - ${course} CLASS 2026</div>
+            <div class="course-details">
+                <h3>What You'll Get</h3>
+                <ul>
+                    <li><strong>Tests:</strong> Weekly mock tests and full-length practice tests with detailed analysis.</li>
+                    <li><strong>Doubt Solving:</strong> 24/7 access to expert faculty for personalized doubt resolution.</li>
+                    <li><strong>Classes:</strong> 100+ live interactive classes with topic-wise coverage and assignments.</li>
+                    <li><strong>Study Material:</strong> Comprehensive study material including notes, PDFs, and question banks.</li>
+                </ul>
+                <div class="buttons">
+                    <button class="button go-back" onclick="goBack('${course}')">GO BACK</button>
+                </div>
+            </div>
+        `;
+    }
+
+    function goBack(course) {
+        const courseCard = document.getElementById(course.toLowerCase() + '-card');
+        // Revert back to the initial card content
+        courseCard.innerHTML = `
+            <div class="online-label">ONLINE</div>
+            <div class="course-card-header">${course} CLASS 2026</div>
+            <div class="course-card-body">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="${course} Course Image" class="course-image">
+                <ul>
+                    <li>LIVE CLASSES with Notes</li>
+                    <li>DPPs with Video Solution</li>
+                    <li>Regular Test</li>
+                    <li>24x7 Doubt Support</li>
+                </ul>
+                <div class="price">
+                    ₹4,999 <span class="original-price">₹5,600</span>
+                </div>
+                <div class="discount">Discount of 11% applied</div>
+                <div class="buttons">
+                    <button class="button explore" onclick="exploreCourse('${course}')">EXPLORE</button>
+                    <button class="button buy-now" onclick="openBuyNowModal('${course}')">BUY NOW</button>
+                </div>
+            </div>
+        `;
+    }
+
+    function openBuyNowModal(course) {
+        document.getElementById('buy-now-modal').style.display = 'flex';
+    }
+
+    function closeBuyNowModal() {
+        document.getElementById('buy-now-modal').style.display = 'none';
+    }
+
+    function confirmPurchase() {
+        alert('Purchase confirmed! Thank you.');
+        closeBuyNowModal();
+    }
+</script>
+</div>
+
+<script>
+  function showCourses(category) {
+    const courses = document.querySelectorAll('.course-card');
+    courses.forEach(course => {
+      if (course.getAttribute('data-category') === category) {
+        course.style.display = 'block';
+      } else {
+        course.style.display = 'none';
+      }
+    });
+
+    const tabs = document.querySelectorAll('.tabs button');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    document.querySelector(`.tabs button[onclick="showCourses('${category}')"]`).classList.add('active');
+  }
+</script>
+</body>
+</html>
     <!-- Course Cards Container -->
     <div class="container">
         <!-- NEET Card -->
         <div class="course-card">
             <div class="online-label">ONLINE</div>
-            <div class="course-card-header">NEET CLASS 2026</div>
+            <div class="course-card-header">NEET CLASS 2025</div>
             <div class="course-card-body">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="NEET Course Image" class="course-image">
                 <ul>
@@ -505,37 +844,19 @@ body {
                 <div class="price">₹4,999 <span class="original-price">₹5,600</span></div>
                 <div class="discount">Discount of 11% applied</div>
                 <div class="buttons">
-                    <button class="button explore">EXPLORE</button>
+                    <a href="testexplore.html" class="button explore">EXPLORE</a>
                     <button class="button buy-now">BUY NOW</button>
                 </div>
             </div>
         </div>
 
         <!-- JEE Card -->
-        <div class="course-card">
-            <div class="online-label">ONLINE</div>
-            <div class="course-card-header">JEE CLASS 2026</div>
-            <div class="course-card-body">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="JEE Course Image" class="course-image">
-                <ul>
-                    <li>Advanced Physics Classes</li>
-                    <li>Math Problem-Solving Sessions</li>
-                    <li>Mock Exams with Rankings</li>
-                    <li>24x7 Support for Concepts</li>
-                </ul>
-                <div class="price">₹5,499 <span class="original-price">₹6,000</span></div>
-                <div class="discount">Discount of 8% applied</div>
-                <div class="buttons">
-                    <button class="button explore">EXPLORE</button>
-                    <button class="button buy-now">BUY NOW</button>
-                </div>
-            </div>
-        </div>
+       
 
         <!-- CLAT Card -->
         <div class="course-card">
             <div class="online-label">ONLINE</div>
-            <div class="course-card-header">CLAT CLASS 2026</div>
+            <div class="course-card-header">NEET  CLASS 2025</div>
             <div class="course-card-body">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="CLAT Course Image" class="course-image">
                 <ul>
@@ -547,58 +868,24 @@ body {
                 <div class="price">₹3,999 <span class="original-price">₹4,300</span></div>
                 <div class="discount">Discount of 7% applied</div>
                 <div class="buttons">
-                    <button class="button explore">EXPLORE</button>
+                    <a href="testexplore.html" class="button explore">EXPLORE</a>
                     <button class="button buy-now">BUY NOW</button>
                 </div>
             </div>
         </div>
+         
 
+       
         <!-- CUET Card -->
-        <div class="course-card">
-            <div class="online-label">ONLINE</div>
-            <div class="course-card-header">CUET CLASS 2026</div>
-            <div class="course-card-body">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="CUET Course Image" class="course-image">
-                <ul>
-                    <li>Detailed Study Material</li>
-                    <li>Personalized Assessments</li>
-                    <li>Practice Papers</li>
-                    <li>Mock Exams</li>
-                </ul>
-                <div class="price">₹4,299 <span class="original-price">₹4,700</span></div>
-                <div class="discount">Discount of 9% applied</div>
-                <div class="buttons">
-                    <button class="button explore">EXPLORE</button>
-                    <button class="button buy-now">BUY NOW</button>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- Foundation Card -->
-        <div class="course-card">
-            <div class="online-label">ONLINE</div>
-            <div class="course-card-header">FOUNDATION CLASS 2026</div>
-            <div class="course-card-body">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="Foundation Course Image" class="course-image">
-                <ul>
-                    <li>Basic Conceptual Classes</li>
-                    <li>Strengthen Fundamentals</li>
-                    <li>Interactive Quizzes</li>
-                    <li>Expert Doubt Support</li>
-                </ul>
-                <div class="price">₹3,499 <span class="original-price">₹3,900</span></div>
-                <div class="discount">Discount of 10% applied</div>
-                <div class="buttons">
-                    <button class="button explore">EXPLORE</button>
-                    <button class="button buy-now">BUY NOW</button>
-                </div>
-            </div>
-        </div>
+     
 
         <!-- Olympiad Card -->
         <div class="course-card">
             <div class="online-label">ONLINE</div>
-            <div class="course-card-header">OLYMPIAD CLASS 2026</div>
+            <div class="course-card-header">NEET CLASS 2025</div>
             <div class="course-card-body">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR50kOyeY6OJdZQATgF5wjBpmiU6272FTWWaQ&s" alt="Olympiad Course Image" class="course-image">
                 <ul>
@@ -610,14 +897,72 @@ body {
                 <div class="price">₹3,999 <span class="original-price">₹4,500</span></div>
                 <div class="discount">Discount of 11% applied</div>
                 <div class="buttons">
-                    <button class="button explore">EXPLORE</button>
+                    <a href="testexplore.html" class="button explore">EXPLORE</a>
                     <button class="button buy-now">BUY NOW</button>
                 </div>
             </div>
         </div>
     </div>
+    
+    <div class="faq-container">
+        <div class="faq-header">
+            <h1>Frequently Asked Questions</h1>
+            <p>Your common questions answered below</p>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                What is Aazad Academy?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Aazad Academy is a platform that provides coaching for NEET and JEE exams, helping students achieve their academic goals.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                How can I enroll in a course?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                You can enroll by visiting our website, selecting your desired course, and completing the registration process online.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Is there any free trial available?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, we offer a free trial for selected courses. Please check our website for more details.
+            </div>
+        </div>
+      
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
 
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const toggle = item.querySelector('.faq-toggle');
 
+            question.addEventListener('click', () => {
+                const isVisible = answer.style.display === 'block';
+
+                // Reset all
+                faqItems.forEach(i => {
+                    i.querySelector('.faq-answer').style.display = 'none';
+                    i.querySelector('.faq-toggle').textContent = '+';
+                    i.querySelector('.faq-toggle').classList.remove('open');
+                });
+
+                // Toggle the current item
+                answer.style.display = isVisible ? 'none' : 'block';
+                toggle.textContent = isVisible ? '+' : '-';
+                toggle.classList.toggle('open', !isVisible);
+            });
+        });
+    </script>
+    
     <footer>
         <div class="footer-container">
           <!-- About Section -->

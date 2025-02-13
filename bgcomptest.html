@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+
+
+
+     
+        .course-intro {
+    padding: 50px 20px; 
+    width: 100%;/* Add padding for spacing */
+    text-align: center;
+    background-image: url(''); /* Replace 'your-image-path.jpg' with the URL of your image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Make the background static while scrolling */
+    color: #007BFF; /* Make the text white for contrast */
+    border-radius: 12px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for a polished look */
+}
+
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+    width: 280px;
+    background: linear-gradient(145deg, #ffffff, #e6f7ff);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Ensure the positioning context for z-index */
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.online-label {
+    position: absolute;
+    top: 60px;
+    left: 4px;
+    background: #2a9d8f;
+    color: white;
+    padding: 2px 7px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Ensure label stays above the card */
+}
+
+        
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 40px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        p {
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        /* Background Colors */
+    
+        
+        .container h1{
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+       
+        
+        .home {
+    background-image: url('https://www.thestatesman.com/wp-content/uploads/2020/09/QT-Indian-students-2.jpg'); /* Update with your image path */
+    background-size: cover;  /* Ensures the image covers the entire div */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    background-attachment: fixed; /* Creates a parallax effect */
+    color: white; /* Makes text readable */
+    padding: 50px;
+    position: relative;
+    min-height: 100vh; /* Ensures full screen height */
+}
+
+/* Optional: Add a dark overlay for better text visibility */
+
+
+            
+
+      
+</style>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="ui.html">
+                <img src="https://aazadacademy.com/wp-content/uploads/2024/08/logo3-e1724488611802.png" alt="Aazad Academy">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-center">
+                <li><a href="upgrade.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">courses</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <a href="#">NEET</a>
+                            <div class="nested-dropdown">
+                                <a href="11thpage.html">CLASS 11TH</a>
+                                <a href="subjects.html">CLASS 12TH</a>
+                                <a href="#">CLASS 12 PLUS</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">JEE</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLASS 11TH</a>
+                                <a href="subjects.html">CLASS 12TH</a>
+                                <a href="#">CLASS 12 PLUS</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CLAT</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLASS 11TH</a>
+                                <a href="subjects.html">CLASS 12TH</a>
+                                <a href="#">CLASS 12 PLUS</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CUET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLASS 11TH</a>
+                                <a href="subjects.html">CLASS 12TH</a>
+                                <a href="#">CLASS 12 PLUS</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">OLYMPIAD</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLASS 11TH</a>
+                                <a href="subjects.html">CLASS 12TH</a>
+                                <a href="#">CLASS 12 PLUS</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">Foundation Courses</a>
+                            <div class="nested-dropdown">
+                                <a href="#">Class 6</a>
+                                <a href="#">Class 7</a>
+                                <a href="#">Class 8</a>
+                                <a href="#">Class 9</a>
+                                <a href="#">Class 10</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#">Study Materials</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <a href="#">NEET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">NEET 2024</a>
+                                <a href="subjects.html">NEET Syllabus</a>
+                                <a href="#">NEET Sample Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">JEE</a>
+                            <div class="nested-dropdown">
+                                <a href="#">JEE 2024</a>
+                                <a href="#">JEE Syllabus</a>
+                                <a href="#">JEE Question Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CLAT</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CLAT 2024</a>
+                                <a href="syllabus.html">CLAT Syllabus</a>
+                                <a href="#">CLAT Preparation</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">CUET</a>
+                            <div class="nested-dropdown">
+                                <a href="#">CUET 2024</a>
+                                <a href="#">CUET Syllabus</a>
+                                <a href="#">CUET Question Papers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">Foundation Courses</a>
+                            <div class="nested-dropdown">
+                                <a href="#">Class 6</a>
+                                <a href="#">Class 7</a>
+                                <a href="#">Class 8</a>
+                                <a href="#">Class 9</a>
+                                <a href="#">Class 10</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="st.html">Test Series</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="btn-login" onclick="location.href='loginsignup.html'">Login</button>
+                <button class="btn-signup" onclick="location.href='loginsignup.html'">Sign Up</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+    <!-- Course Intro Section -->
+  
+    <div class="home">
+        <nav class="breadcrumb">
+            <a href="upgrade.html">Home</a> &gt; <span>Test Series</span>
+        </nav>
+
+
+        <br>
+       
+        <h1>Aazad Academy Test Series: Boost Your NEET & JEE Preparation</h1>
+        <p>
+            Preparing for competitive exams like NEET & JEE requires a well-structured strategy and consistent effort. 
+            Aazad Academy provides high-quality mock tests, study materials, and expert guidance to help students excel in their exams. 
+            Explore our test series and take your preparation to the next level.
+            Covers Physics, Chemistry, and Biology with NCERT-focused questions.
+Includes full-length mock tests and chapter-wise tests.
+AI-based performance tracking to highlight weak areas.
+Previous year question integration to familiarize students with exam trends.
+        </p>
+        <div class="card-container">
+            <div class="card card-1">
+                <i class="fas fa-book-open"></i>
+                <h3>Blogs</h3>
+                <p>Read Our Latest Blogs</p>
+            </div>
+
+            <div class="card card-2">
+                <i class="fas fa-laptop"></i>
+                <h3>Online Courses</h3>
+                <p>Access Our Latest Courses</p>
+            </div>
+
+            <div class="card card-3">
+                <i class="fas fa-tasks"></i>
+                <h3>Test Series</h3>
+                <p>Practice with Our Mock Tests</p>
+            </div>
+
+            <div class="card card-4">
+                <i class="fas fa-book"></i>
+                <h3>Books</h3>
+                <p>Find Preparation Books</p>
+            </div>
+        </div>
+    </div>
+  
+    
+     <!-- Course Cards Container -->
+ \
+ 
+     <br>
+     <br>
+     <br>
+     <br>
+     <div class="container">
+         <h1>Aazad Academy NEET Test Series 2024</h1>
+         <div class="tabs">
+             <button class="tab-button active" onclick="openTab('overview', this)">Overview</button>
+             <button class="tab-button" onclick="openTab('features', this)">Features</button>
+             <button class="tab-button" onclick="openTab('why-us', this)">Why Choose Us</button>
+         </div>
+         
+         <br>
+         
+         
+         <div id="overview" class="tab-content active">
+             <h2>Test Coverage</h2>
+             <ul>
+                 <li><i class="fas fa-check-circle"></i> 200+ mock tests including full-length, subject-wise, and topic-wise tests.</li>
+                 <li><i class="fas fa-check-circle"></i> Aligned with the latest NEET syllabus and pattern.</li>
+                 <li><i class="fas fa-check-circle"></i> Includes previous year NEET questions.</li>
+             </ul>
+         </div>
+         
+         <div id="features" class="tab-content">
+             <h2>High-Quality Questions</h2>
+             <ul>
+                 <li><i class="fas fa-check-circle"></i> Concept-based and application-oriented questions.</li>
+                 <li><i class="fas fa-check-circle"></i> Balanced difficulty levels: Easy, Medium, and Hard.</li>
+                 <li><i class="fas fa-check-circle"></i> Regularly updated content to match trends.</li>
+             </ul>
+         </div>
+         
+         <div id="why-us" class="tab-content">
+             <h2>Why Choose Aazad Academy?</h2>
+             <ul>
+                 <li><i class="fas fa-check-circle"></i> Expert faculty curating all test series.</li>
+                 <li><i class="fas fa-check-circle"></i> Performance tracking with percentile rankings.</li>
+                 <li><i class="fas fa-check-circle"></i> Affordable and flexible learning plans.</li>
+             </ul>
+         </div>
+         
+    
+     </div>
+ 
+     <script>
+         function openTab(tabId, element) {
+             var contents = document.querySelectorAll('.tab-content');
+             contents.forEach(content => content.classList.remove('active'));
+             document.getElementById(tabId).classList.add('active');
+ 
+             var buttons = document.querySelectorAll('.tab-button');
+             buttons.forEach(btn => btn.classList.remove('active'));
+             element.classList.add('active');
+         }
+     </script>
+ </body>
+ 
+</body>
+</html>

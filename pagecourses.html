@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Series</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7fcff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .test-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .test-card {
+            width: 280px;
+            background: linear-gradient(145deg, #ffffff, #e6f7ff);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .test-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .test-card-header {
+            background: linear-gradient(90deg, #457b9d, #2a9d8f);
+            color: #ffffff;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .test-card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .test-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .price {
+            font-size: 1.1rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999999;
+            font-size: 0.75rem;
+            margin-left: 5px;
+        }
+
+        .discount {
+            font-size: 0.8rem;
+            color: #e63946;
+            margin-bottom: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .button {
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button.explore {
+            background: #2a9d8f;
+            color: white;
+        }
+
+        .button.explore:hover {
+            background: #217867;
+        }
+
+        .button.buy-now {
+            background: linear-gradient(90deg, #484bf0, #396ae8);
+            color: white;
+        }
+
+        .button.buy-now:hover {
+            background: linear-gradient(90deg, #d63244, #ff6840);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Series</h1>
+        <div class="test-grid" id="testGrid"></div>
+    </div>
+    <script>
+        const tests = [
+            { title: "NEET 2025 Test Series", category: "NEET", img: "https://via.placeholder.com/300x150", details: "Comprehensive NEET preparation with full-length mock tests.", price: "₹999", originalPrice: "₹1999", discount: "50% off" },
+            { title: "JEE Main 2025 Test Series", category: "JEE", img: "https://via.placeholder.com/300x150", details: "JEE-specific test series covering all key topics.", price: "₹1299", originalPrice: "₹2599", discount: "50% off" },
+            { title: "CLAT 2025 Test Series", category: "CLAT", img: "https://via.placeholder.com/300x150", details: "Expertly crafted CLAT test series for law aspirants.", price: "₹899", originalPrice: "₹1799", discount: "50% off" },
+            { title: "CUET 2025 Test Series", category: "CUET", img: "https://via.placeholder.com/300x150", details: "Comprehensive CUET test preparation series.", price: "₹799", originalPrice: "₹1599", discount: "50% off" },
+            { title: "Foundation Courses Test Series", category: "Foundation", img: "https://via.placeholder.com/300x150", details: "Strong foundation courses for early learners.", price: "₹699", originalPrice: "₹1399", discount: "50% off" },
+            { title: "Olympiad Test Series", category: "Olympiad", img: "https://via.placeholder.com/300x150", details: "Specialized Olympiad test series for competitive exams.", price: "₹599", originalPrice: "₹1199", discount: "50% off" }
+        ];
+        
+        const testGrid = document.getElementById("testGrid");
+        tests.forEach((test) => {
+            const card = document.createElement("div");
+            card.classList.add("test-card");
+            card.innerHTML = `
+                <img src="${test.img}" alt="${test.title}">
+                <div class="test-card-header">${test.title} (${test.category})</div>
+                <div class="test-card-body">
+                    <p>${test.details}</p>
+                    <div class="price">${test.price} <span class="original-price">${test.originalPrice}</span></div>
+                    <div class="discount">${test.discount}</div>
+                    <div class="buttons">
+                        <button class="button explore">EXPLORE</button>
+                        <button class="button buy-now">BUY NOW</button>
+                    </div>
+                </div>
+            `;
+            testGrid.appendChild(card);
+        });
+    </script>
+</body>
+</html>

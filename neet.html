@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Syllabus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #0d47a1;
+            border-bottom: 2px solid #673ab7;
+            padding-bottom: 5px;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        p {
+            color: #555;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NEET Syllabus</h1>
+        <p>The NEET syllabus is divided into three subjects: Physics, Chemistry, and Biology. Below is the detailed syllabus for each:</p>
+        
+        <div class="subject">
+            <h2 onclick="toggleList('physicsList')">Physics</h2>
+            <ul id="physicsList">
+                <li><a href="physics.html">Physical world and Measurement</a></li>
+                <li><a href="#physical-world-and-measurement"></a>Kinematics</li>
+                <li><a href="#physical-world-and-measurement"></a>Laws of Motion</li>
+                <li><a href="#physical-world-and-measurement"></a>Work, Energy, and Power</li>
+                <li><a href="#physical-world-and-measurement"></a>Optics</li>
+                <li><a href="#physical-world-and-measurement"></a>Semiconductors</li>
+            </ul>
+        </div>
+
+        <div class="subject">
+            <h2 onclick="toggleList('chemistryList')">Chemistry</h2>
+            <ul id="chemistryList">
+                <li>Structure of Atom</li>
+                <li>Chemical Bonding</li>
+                <li>Thermodynamics</li>
+                <li>Organic Chemistry – Some Basic Principles</li>
+            </ul>
+        </div>
+
+        <div class="subject">
+            <h2 onclick="toggleList('biologyList')">Biology</h2>
+            <ul id="biologyList">
+                <li><a href="subject.html">Diversity of Living Organisms</a></li>
+                <li>Human Physiology</li>
+                <li>Biotechnology and Its Applications</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleList(id) {
+            var list = document.getElementById(id);
+            if (list.style.display === "none") {
+                list.style.display = "block";
+            } else {
+                list.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
